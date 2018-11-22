@@ -1,0 +1,154 @@
+
+/*
+
+列表页  渲染列表  分页 升降序-------------->
+    GET
+    api/goodList.php
+    传参
+        * page 索引值
+        * nums 每页显示多少条
+        * type 按什么排序  
+            * 不设值 (按id排序) 
+            * heat 人气排序
+            * price 价格排序 
+        * order 排序，默认升序  desc降序/asc降序
+        默认 第一页 每页10条 按id排序 升序
+    返回值
+        * code  0  有数据 
+            * total 数据表内数据总条数
+            * page 当前页
+            * nums 每页条数
+            * datalist 数据列表
+        * code 1  没数据
+            * message "参数有问题" 
+
+详情页   ---------->
+    单个商品渲染
+    GET
+    api/detail.php
+    传参 
+        * gid 商品Id
+        默认为第一个商品
+    返回
+    * code 0 正确
+    * gid 商品id
+    * datalist 数据列表
+
+    将商品加入购物车
+    GET
+    api/insertGood.php
+    传参
+        * gid 商品id
+        * uid 用户id
+        * num 数量
+    返回值
+        * code 0 
+            * gid 商品id
+            * uid 用户id
+            * nums 商品数量
+            * message "加入成功"
+        * code 2
+            * message "加入失败"
+        * code 1
+            * message  "该商品已在购物车内"
+
+购物车
+    渲染购物车页
+    GET
+    api/cart.php
+    传参
+        * uid 用户ID
+    返回值 
+        * code 0
+            * uid   用户id
+            * datalist  商品信息列表(含数量,购物车列表lid)
+            * message "加载完成"
+        * code 1
+            * message "购物车内无商品"
+        * code 2
+            * message "参数有误，不能为空"
+            *
+    
+    购物车数量加减
+    GET
+    api/addSub.php
+    传参
+        * lid 购物车列表id
+        * type add(加一)或者sub(减一)或者数字
+    返回值
+        * code 0
+            * "nums" => 当前数量
+            * "stroks" => 库存
+            * "type" => 加或减
+            * "message" => "更新成功!"
+        * code 1
+            * "nums" => 当前数量
+            * "stroks" => 库存
+            * "type" => 加或减
+            * "message" => "已经到达最大!" 
+        * code 2
+            * "nums" => 当前数量
+            * "stroks" => 库存
+            * "type" => 加或减
+            * "message" => "最小为1" 
+        * code 3
+            * "type" => type值
+            * "message" => "type 设错"
+        * code 4
+            * "type"  ""
+            * "message" "不能大于库存或者小于1"
+    购物车删除当行 删除多行(循环调用)
+    GET
+    api/newDel.php
+    传参
+        * lid lid(单个) lid-lid(多个用 - 拼接) 
+    返回值
+        * code 0
+            * message "已删除"
+        * code 1
+            * message  "未删除,lid不能为空"
+    
+注册页----------------->
+    用户名验证
+    GET
+    api/checkname.php
+    传参
+        * username 用户名
+    返回值
+        * code 0 
+            * message "该用户名可注册"
+        * code 1
+            * message "该用户名已存在"
+        * code 2
+            * message "用户名不能为空"
+    
+    新用户信息录入
+    POST
+    api/insertUser.php
+    传参
+        * username 用户名
+        * password 密码
+    返回值
+        * code 0
+            *  "message" => "注册成功"
+        * code 1
+            *  "message" => "注册失败"
+        * code 2
+            *  "message" => "用户名或密码不能为空"
+    
+登录页-------------->
+    POST
+    api/login.php
+    传参
+        * username 用户名
+        * password 密码
+    返回值
+        * code 0
+            * uid 该用户名的id
+            * username 用户名
+            * message  "登录成功"
+        * code 1
+            * message "用户名或密码错误"
+        * code 2
+            * message "用户名或密码不能为空"
+*/
