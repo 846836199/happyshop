@@ -64,7 +64,13 @@ $(function () {
                                 var res = JSON.parse(data);
                                 alert(res.message);
                                 if(res.code == "0"){
-                                    location.href = "../index1.html?uid="+res.uid;
+                                    location.href = "../index1.html";
+                                    var day = new Date();
+                                    day.setDate(day.getDate()+7);
+                                    document.cookie = "uid="+res.uid+";expires="+day.toUTCString()+";path=/";
+
+                                } else {
+                                    $("#login .checkCode").find(".code").eq(0).html(randomNL(4));
                                 }
                             }
                         });
