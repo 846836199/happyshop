@@ -327,8 +327,66 @@ $(function () {
     });
     //-----------移入显示点击按钮;
     $(".ad .ad_content").hover(function(){
-        $(this).find(".list_btn").eq(0).show();
+        $(this).find(".prev").eq(0).show();
+        $(this).find(".next").eq(0).show();
     },function(){
-        $(this).find(".list_btn").eq(0).hide();
+        $(this).find(".prev").eq(0).hide();
+        $(this).find(".next").eq(0).hide();
     });
+
+    $(".ad .list").on("mouseenter","li",function(){
+        $(this).addClass("good_hover");
+    });
+    $(".ad .list").on("mouseleave","li",function(){
+        $(this).removeClass("good_hover");
+    });
+
+    //广告栏轮播
+    var adW = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(0).find("li").size();
+    var adW2 = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(1).find("li").size();
+    //一页的宽度
+    var lisW = ($(".ad .list").find("li").eq(0).width()+6)*5;
+    console.log(lisW);
+    //设置ul的宽度 left的坐标
+    $(".ad .list").eq(0).css({
+        "width":adW+"px",
+        "left":0
+    });
+    $(".ad .list").eq(1).css({
+        "width":adW2+"px",
+        "left":0
+    });
+    
+    //点击滚动
+    var key = true;
+    var key2 = true;
+    $(".ad .ad_content").find(".next").click(function(){
+        // $(this).next().find(".list").stop(false,true);
+        var le = $(this).next().find(".list").css("left");
+        le = le.slice(0,-2);
+        // console.log(le);
+        //da
+        if(le>-($(this).next().find(".list").width()-lisW) && key){
+            le = le*1+lisW;
+            key = false;
+            $(this).next().find(".list").animate({left:-le+"px"},function(){
+                key = true;
+            });
+        }
+    });
+    $(".ad .ad_content").find(".prev").click(function(){
+        $(this).nextAll(".ad_list").eq(0).stop(false,true);
+        var le = $(this).nextAll(".ad_list").eq(0).find(".list").css("left");
+        le = le.slice(0,-2);
+        // console.log(le);
+        if(le<0 && key2){
+            le = le*1+lisW;
+            key2 = false;
+            $(this).nextAll(".ad_list").eq(0).find(".list").animate({left:+le+"px"},function(){
+                key2 = true;
+            });
+        }
+    });
+    // console.log($(".ad .list").eq(0).width());
+    // console.log($(".ad .list").eq(1).width());
 });
