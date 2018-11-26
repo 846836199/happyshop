@@ -346,7 +346,7 @@ $(function () {
     var adW2 = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(1).find("li").size();
     //一页的宽度
     var lisW = ($(".ad .list").find("li").eq(0).width()+6)*5;
-    console.log(lisW);
+    // console.log(lisW);
     //设置ul的宽度 left的坐标
     $(".ad .list").eq(0).css({
         "width":adW+"px",
@@ -368,6 +368,7 @@ $(function () {
         //da
         if(le>-($(this).next().find(".list").width()-lisW) && key){
             le = le*1+lisW;
+            console.log(le);
             key = false;
             $(this).next().find(".list").animate({left:-le+"px"},function(){
                 key = true;
@@ -387,6 +388,163 @@ $(function () {
             });
         }
     });
-    // console.log($(".ad .list").eq(0).width());
-    // console.log($(".ad .list").eq(1).width());
+    
+    //限时抢购轮播
+    //默认宽度
+    var limW1 = $(".limit_buy .limit_list").find("li").eq(0).width()+10;
+    //一页宽度
+    var limW2 = limW1*5;
+    $(".limit_buy .limit_content").each(function(){
+        var w = limW1*$(this).find(".limit_list").eq(0).find("li").size();
+        // console.log(w);
+        $(this).find(".limit_list").eq(0).css("width",w+"px");
+    });
+    var lim_key = true;
+    var lim_key2 = true;
+    $(".limit_buy .limit_content").find(".next").click(function(){
+        // $(this).next().find(".list").stop(false,true);
+        var le = $(this).prevAll(".limit_list").eq(0).css("left");
+        le = le.slice(0,-2);
+        
+        if(le>-($(this).prevAll(".limit_list").eq(0).width()-limW2) && lim_key){
+            lim_key =false;
+            wid = le*1 + limW2;
+            console.log(wid);
+            $(this).prevAll(".limit_list").eq(0).animate({left:-wid+"px"},function(){
+                lim_key = true;
+            });
+        }
+    });
+    $(".limit_buy .limit_content").find(".prev").click(function(){
+        var le = $(this).prev().css("left");
+        le = le.slice(0,-2);
+        console.log(le);
+        if(le<0 && lim_key2){
+            wid = le*1 + limW2;
+            lim_key2 = false;
+            $(this).prev().animate({left:wid+"px"},function(){
+                lim_key2 = true;
+            });
+        }
+    });
+    //限时抢购 切换
+    $(".limit_buy .port_page").find("a").mouseenter(function () { 
+        $(".limit_buy .port_page").find("a").removeClass("page_hover");
+        $(this).addClass("page_hover");
+        $(".limit_buy .limit_content").hide();
+        $(".limit_buy .limit_content").eq($(this).index()).show();
+    });
+    $(".limit_buy .limit_list").on("mouseenter","li",function(){
+        $(this).find(".limit_img").eq(0).css("opacity",0.8);
+        $(this).find(".limit_name").eq(0).css("text-decoration","underline");
+    });
+    $(".limit_buy .limit_list").on("mouseleave","li",function(){
+        $(this).find(".limit_img").eq(0).css("opacity",1);
+        $(this).find(".limit_name").eq(0).css("text-decoration","none");
+    });
+    $(".limit_buy .limit_content").hover(function(){
+        $(this).find(".prev").show();
+        $(this).find(".next").show();
+    },function(){
+        $(this).find(".next").hide();
+        $(this).find(".prev").hide();
+    });
+
+    //新品推荐 hover
+    $(".new_rec .new_list").on("mouseenter","li",function(){
+        $(this).addClass("list_hover");
+    });
+    $(".new_rec .new_list").on("mouseleave","li",function(){
+        $(this).removeClass("list_hover");
+    });
+
+    //区块
+    $(".block .block_good").on("mouseenter","li",function(){
+        $(this).addClass("list_hover");
+    });
+    $(".block .block_good").on("mouseleave","li",function(){
+        $(this).removeClass("list_hover");
+    });
+    $(".Beauty .port_page").find("a").mouseenter(function(){
+        $(".Beauty .port_page").find("a").removeClass("page_hover");
+        $(this).addClass("page_hover");
+        $(".Beauty .block_content").hide();
+        $(".Beauty .block_content").eq($(this).index()).show();
+    });
+
+
+    //头部固定搜索栏显示
+    var key1 = true;
+    var ad = document.getElementsByClassName("ad")[0].offsetTop;
+    var lim = document.getElementsByClassName("limit_buy")[0].offsetTop-72;
+    var new1 = document.getElementsByClassName("new_rec")[0].offsetTop-72;
+    var act = document.getElementsByClassName("activity")[0].offsetTop-72;
+    var bea = document.getElementsByClassName("Beauty")[0].offsetTop-72;
+    var foo = document.getElementsByClassName("food")[0].offsetTop-72;
+    var dai = document.getElementsByClassName("daily")[0].offsetTop-72;
+    var clo = document.getElementsByClassName("clothing")[0].offsetTop-72;
+    var ar = document.getElementsByClassName("art")[0].offsetTop-72;
+    var dig = document.getElementsByClassName("digital")[0].offsetTop-72;
+    $(window).scroll(function(){
+        var t = document.documentElement.scrollTop;
+        if(t>100){
+            $("#sidebar .side_bottom").find(".toTop").eq(0).css("opacity",1);
+        } else {
+            $("#sidebar .side_bottom").find(".toTop").eq(0).css("opacity",0.6);
+        }
+        if(t>ad){
+            // console.log("ad:"+ad);
+            // key1 = false;
+            // $(".rolling .search_top").eq(0).animate({height:52+"px"});
+            $(".rolling .search_top").eq(0).css("height",52+"px");
+        } else {
+            // key1 = true;
+            // console.log("t:"+t);
+            // $(".rolling .search_top").eq(0).animate({height:0+"px"});
+            $(".rolling .search_top").eq(0).css("height",0);
+        }
+        if(t>lim){
+            $(".left_top").eq(0).show();
+            
+        } else {
+            $(".left_top").eq(0).hide();
+        }
+        
+        if(t>=lim && t< new1){
+            $(".left_top").eq(0).find("a").removeClass("left_active");
+            $(".left_top .lim").eq(0).find("a").addClass("left_active");
+        }
+        if(t>=new1 && t< act){
+            $(".left_top").eq(0).find("a").removeClass("left_active");
+            $(".left_top .new").eq(0).find("a").addClass("left_active");
+        }
+        if(t>=act && t< bea){
+            $(".left_top").eq(0).find("a").removeClass("left_active");
+            $(".left_top .act").eq(0).find("a").addClass("left_active");
+        }
+        if(t>=bea && t< foo){
+            $(".left_top").eq(0).find("a").removeClass("left_active");
+            $(".left_top .Bea").eq(0).find("a").addClass("left_active");
+        }
+        if(t>=foo && t< dai){
+            $(".left_top").eq(0).find("a").removeClass("left_active");
+            $(".left_top .foo").eq(0).find("a").addClass("left_active");
+        }
+        if(t>=dai && t< clo){
+            $(".left_top").eq(0).find("a").removeClass("left_active");
+            $(".left_top .dai").eq(0).find("a").addClass("left_active");
+        }
+        if(t>=clo && t< ar){
+            $(".left_top").eq(0).find("a").removeClass("left_active");
+            $(".left_top .clo").eq(0).find("a").addClass("left_active");
+        }
+        if(t>=ar && t< dig){
+            $(".left_top").eq(0).find("a").removeClass("left_active");
+            $(".left_top .ar").eq(0).find("a").addClass("left_active");
+        }
+        if(t>=dig){
+            $(".left_top").eq(0).find("a").removeClass("left_active");
+            $(".left_top .dig").eq(0).find("a").addClass("left_active");
+        }
+    });
 });
