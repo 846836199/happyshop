@@ -1,0 +1,181 @@
+.cen{
+    width:1200px;
+    margin:0 auto;
+}
+.head_link{
+    height: 57px;
+    line-height: 57px;
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 12px;
+    margin-bottom: 20px;
+    a{
+        padding:0 8px;
+        color: #666666;
+    }
+    span{
+        padding: 0 12px;
+        color: #666666;
+    }
+    a:hover{
+        color: #94193F;
+        text-decoration: underline;
+    }
+}
+.sort{
+    background: #FBFBFB;
+    border:1px solid #E4E4E4;
+    height: 40px;
+    line-height: 40px;
+    .sort_l{
+        font-size: 12px;
+        dt,dd{
+            float: left;
+            text-align: center;
+        }
+        dt{
+            background: #fff;
+            width:86px;
+            color:#94193F;
+            border-right: 1px solid #E4E4E4;
+        }
+        dd{
+            padding:0 30px;
+            a{
+                color: #999999;
+                i{
+                    vertical-align: middle;
+                    display: inline-block;
+                    width:8px;
+                    height: 11px;
+                    margin-left: 2px;
+                    margin-bottom: 2px;
+                    background: url("../img/icon_list.png") no-repeat;
+                }
+            }
+            color: #999999;
+        }
+        .default{
+            i{
+                background-position: -88px -689px;
+            }
+        }
+        .sales{
+            i{
+                background-position: -156px -653px;
+            }
+        }
+        .price {
+            i{
+                background-position: -156px -653px;
+            }
+        }
+        .check {
+            color:#94193F;
+            input{
+                margin-right: 8px;
+            }
+        }
+    }
+    .sort_r{
+        li{
+            float: left;
+            font-size: 12px;
+            color:#999999;
+            padding: 0 10px;
+            // vertical-align: middle;
+            span{
+                color:#94193F;
+            }
+        }
+        .total{
+            background: url("../img/border.png") no-repeat right center;
+        }
+        .page{
+            margin-right: 26px;
+        }
+        .prev,.next{
+            padding:0 5px;
+            a{
+                color: #999999;
+            }
+        }
+        .next{
+            margin-right: 6px;
+        }
+    }
+}
+
+.list_content{
+    // overflow: hidden;
+    padding-left: 12px;
+    margin-bottom: 16px;
+    .list{
+        li{
+            float: left;
+            width:288px;
+            border:1px solid #E4E4E4;
+            margin-top:26px;
+            margin-right: 10px;
+            transition: all 0.3s linear;
+            .good_img{
+                img{
+                    width:288px;
+                    height: 288px;
+                    display: block;
+                }
+            }
+            .good_mess{
+                padding:8px 25px 16px 15px;
+                font-size: 12px;
+                .good_price{
+                    color:#666666;
+                    font-size: 16px;
+                    height: 26px;
+                    line-height: 26px;
+                    del{
+                        color: #969696;
+                        font-size: 12px;
+                    }
+                }
+                .good_name{
+                    color:#434343;
+                    height: 44px;
+                    line-height: 22px;
+                    overflow: hidden;
+                }
+            }
+        }
+        li:hover{
+            border-color: #fff;
+            box-shadow: 0 0 4px #666;
+        }
+    }
+}
+
+.page_btn{
+    text-align: center;
+    font-size: 12px;
+    a{
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        padding:0 16px;
+        border:1px solid #CCCCCC;
+        color: #262626;
+        margin:0 5px;
+    }
+    .pages{
+        display: inline-block;
+    }
+    span{
+        padding:0 5px;
+    }
+    .a_active{
+        border-color: #fff !important;
+        color: #A2193F !important;
+    }
+    a:hover{
+        border-color: #A2193F;
+        color: #A2193F;
+    }
+}

@@ -254,7 +254,7 @@ $(function () {
         if (h > 20) {
             $("html,body").animate({
                 scrollTop: 0
-            }, "linear");
+            },"slow");
         }
     });
 
@@ -270,7 +270,7 @@ $(function () {
     }
     //窗口改变 图片位置跟着变
     $(window).resize(function () { 
-        bannerResize();
+        // bannerResize();
     });
     //页码居中
     var pageW = $("#banner .pages").eq(0).width();
@@ -474,18 +474,21 @@ $(function () {
 
 
     //头部固定搜索栏显示
-    var key1 = true;
+    var key1 = false;
+    var arr = [];
     var ad = document.getElementsByClassName("ad")[0].offsetTop;
-    var lim = document.getElementsByClassName("limit_buy")[0].offsetTop-72;
-    var new1 = document.getElementsByClassName("new_rec")[0].offsetTop-72;
-    var act = document.getElementsByClassName("activity")[0].offsetTop-72;
-    var bea = document.getElementsByClassName("Beauty")[0].offsetTop-72;
-    var foo = document.getElementsByClassName("food")[0].offsetTop-72;
-    var dai = document.getElementsByClassName("daily")[0].offsetTop-72;
-    var clo = document.getElementsByClassName("clothing")[0].offsetTop-72;
-    var ar = document.getElementsByClassName("art")[0].offsetTop-72;
-    var dig = document.getElementsByClassName("digital")[0].offsetTop-72;
-    $(window).scroll(function(){
+    //各个区块的offsetTop
+    arr[0] = document.getElementsByClassName("limit_buy")[0].offsetTop-72;
+    arr[1] = document.getElementsByClassName("new_rec")[0].offsetTop-72;
+    arr[2] = document.getElementsByClassName("activity")[0].offsetTop-72;
+    arr[3] = document.getElementsByClassName("Beauty")[0].offsetTop-72;
+    arr[4] = document.getElementsByClassName("food")[0].offsetTop-72;
+    arr[5] = document.getElementsByClassName("daily")[0].offsetTop-72;
+    arr[6] = document.getElementsByClassName("clothing")[0].offsetTop-72;
+    arr[7] = document.getElementsByClassName("art")[0].offsetTop-72;
+    arr[8] = document.getElementsByClassName("digital")[0].offsetTop-72;
+    //滚动切换侧边栏样式
+    $(document).scroll(function(){
         var t = document.documentElement.scrollTop;
         if(t>100){
             $("#sidebar .side_bottom").find(".toTop").eq(0).css("opacity",1);
@@ -495,56 +498,91 @@ $(function () {
         if(t>ad){
             // console.log("ad:"+ad);
             // key1 = false;
-            // $(".rolling .search_top").eq(0).animate({height:52+"px"});
-            $(".rolling .search_top").eq(0).css("height",52+"px");
+            $(".rolling .search_top").eq(0).slideDown();
+            // $(".rolling .search_top").eq(0).animate({height:52+"px"},function(){
+                // key1 = true;
+                // $(".rolling .search_top").eq(0).stop();
+            // });
+            // $(".rolling .search_top").eq(0).css("height",52+"px");
         } else {
             // key1 = true;
             // console.log("t:"+t);
             // $(".rolling .search_top").eq(0).animate({height:0+"px"});
-            $(".rolling .search_top").eq(0).css("height",0);
+            // $(".rolling .search_top").eq(0).css({
+            //     "height":0
+            // });
+            $(".rolling .search_top").eq(0).slideUp();
+            
         }
-        if(t>lim){
+        if(t>arr[0]-20){
             $(".left_top").eq(0).show();
             
         } else {
             $(".left_top").eq(0).hide();
         }
         
-        if(t>=lim && t< new1){
+        //
+        if(t>=arr[0] && t< arr[1]){
+            $(".left_top").eq(0).find("li").removeClass("left_hover");
             $(".left_top").eq(0).find("a").removeClass("left_active");
             $(".left_top .lim").eq(0).find("a").addClass("left_active");
         }
-        if(t>=new1 && t< act){
+        if(t>=arr[1] && t< arr[2]){
+            $(".left_top").eq(0).find("li").removeClass("left_hover");
             $(".left_top").eq(0).find("a").removeClass("left_active");
             $(".left_top .new").eq(0).find("a").addClass("left_active");
         }
-        if(t>=act && t< bea){
+        if(t>=arr[2] && t< arr[3]){
+            $(".left_top").eq(0).find("li").removeClass("left_hover");
             $(".left_top").eq(0).find("a").removeClass("left_active");
             $(".left_top .act").eq(0).find("a").addClass("left_active");
         }
-        if(t>=bea && t< foo){
+        if(t>=arr[3] && t< arr[4]){
+            $(".left_top").eq(0).find("li").removeClass("left_hover");
             $(".left_top").eq(0).find("a").removeClass("left_active");
             $(".left_top .Bea").eq(0).find("a").addClass("left_active");
         }
-        if(t>=foo && t< dai){
+        if(t>=arr[4] && t< arr[5]){
+            $(".left_top").eq(0).find("li").removeClass("left_hover");
             $(".left_top").eq(0).find("a").removeClass("left_active");
             $(".left_top .foo").eq(0).find("a").addClass("left_active");
         }
-        if(t>=dai && t< clo){
+        if(t>=arr[5] && t< arr[6]){
+            $(".left_top").eq(0).find("li").removeClass("left_hover");
             $(".left_top").eq(0).find("a").removeClass("left_active");
             $(".left_top .dai").eq(0).find("a").addClass("left_active");
         }
-        if(t>=clo && t< ar){
+        if(t>=arr[6] && t< arr[7]){
+            $(".left_top").eq(0).find("li").removeClass("left_hover");
             $(".left_top").eq(0).find("a").removeClass("left_active");
             $(".left_top .clo").eq(0).find("a").addClass("left_active");
         }
-        if(t>=ar && t< dig){
+        if(t>=arr[7] && t< arr[8]){
+            $(".left_top").eq(0).find("li").removeClass("left_hover");
             $(".left_top").eq(0).find("a").removeClass("left_active");
             $(".left_top .ar").eq(0).find("a").addClass("left_active");
         }
-        if(t>=dig){
+        if(t>=arr[8]){
+            $(".left_top").eq(0).find("li").removeClass("left_hover");
             $(".left_top").eq(0).find("a").removeClass("left_active");
             $(".left_top .dig").eq(0).find("a").addClass("left_active");
         }
+    });
+
+    //左边侧边栏hover
+    $(".rolling .left_top").eq(0).find("li").hover(function(){
+        if($(this).find("a").eq(0).hasClass("left_active")){
+
+        } else {
+            $(this).addClass("left_hover");
+        }
+        
+    },function(){
+        $(this).removeClass("left_hover");
+    });
+    $(".rolling .left_top").eq(0).find("li").click(function(){
+        $("html,body").animate({
+            scrollTop: arr[$(this).index()]+"px"
+        }, "linear");
     });
 });

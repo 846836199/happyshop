@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>快乐购-详情页</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/details.css">
+    <script src="../lib/jquery-1.10.1.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/thisCom.js"></script>
+    <script src="../js/details.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div class="head_top">
+            <div class="cen clearfix">
+                <div class="loginStatus fl">
+                    <span>欢迎来到快乐购！</span>
+                    <a href="../html/login.html" class="login">[登录]</a>
+                    <a href="../html/register.html" class="reg">[注册]</a>
+                    <a href="javascript:;" class="logout">[退出]</a>
+                    <p class="reg_tip">注册即得新人专享288元购物红包<i></i></p>
+                </div>
+                <ul class="top_r clearfix fr">
+                    <li>
+                        <a href="javacript:;"><span>合作招商</span></a>
+                    </li>
+                    <li>
+                        <a href="javacript:;"><span>订单查询</span></a>
+                    </li>
+                    <li>
+                        <a href="javacript:;"><span>我的快乐购</span></a>
+                    </li>
+                    <li>
+                        <a href="javacript:;"><i></i><span>400-705-1111</span></a>
+                    </li>
+                    <li class="downApp">
+                        <a href="javacript:;"><span>下载快乐购App</span></a>
+                        <div>
+                            <img src="../img/down_load_20160411.png" alt="下载快乐购App" />
+                        </div>
+                    </li>
+                    <li class="service">
+                        <a href="javacript:;"><span>客服中心 <i></i></span></a>
+                        <div class="ser_content">
+                            <a href="javascript:;">用户中心</a>
+                            <a href="javascript:;">会员反馈</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="head_mid cen clearfix">
+            <h1 class="fl">
+                <a href="../index1.html"> 快乐购 </a>
+                <img src="../img/top_center1 (1).jpg" alt="优惠" />
+            </h1>
+            <div class="search fl">
+                <form action="#">
+                    <input type="text" class="sea_input" placeholder="大衣" /><input type="button" value="搜索" class="sea_btn" />
+                </form>
+                <p>
+                    <a href="javascript:;">面膜</a> <a href="javascript:;">京城之霜</a>
+                    <a href="javascript:;">牛奶</a> <a href="javascript:;">手表</a>
+                    <a href="javascript:;">严选</a> <a href="javascript:;">韩束</a>
+                    <a href="javascript:;">康宁</a> <a href="javascript:;">鞋</a>
+                    <a href="javascript:;">方太</a> <a href="javascript:;">洗发水</a>
+                    <a href="javascript:;">兰芝</a>
+                </p>
+                <ul class="search_list">
+                    <li class="clearfix">
+                        <span class="sea_text fl">面部</span>
+                        <span class="sea_nums fr">约983个结果</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="sea_text fl">面部</span>
+                        <span class="sea_nums fr">约983个结果</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="sea_text fl">面部</span>
+                        <span class="sea_nums fr">约983个结果</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="sea_text fl">面部</span>
+                        <span class="sea_nums fr">约983个结果</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="head_cart fr">
+                <a href="javascript:;"><i class="gou_icon"></i>我的购物车&nbsp;<i class="gou_jian"></i><span class="gou_nums">0</span></a>
+                <div class="cart_list">
+                    <div class="cartTip">购物车没商品&nbsp;赶快去选购吧</div>
+                    <div class="white"></div>
+                    <div class="cartContent">
+                        <h4>最新加入的商品</h4>
+                        <ul class="list">
+                            <li>
+                                <img src="../img/goodtest60.jpg" alt="" class="fl goodImg" />
+                                <a href="javascript:;" class="fl goodName">康斯黛拉铆钉设计款纯羊毛双面尼大衣羊毛双羊毛双羊毛双羊毛双羊毛双羊毛双
+                                    黑色 M</a>
+                                <p class="fr goodMess">
+                                    ￥<span>599.00</span> × <span>2</span>
+                                </p>
+                                <a href="javascript:;" class="del fr">删除</a>
+                            </li>
+                            <li>
+                                <img src="../img/goodtest60.jpg" alt="" class="fl goodImg" />
+                                <a href="javascript:;" class="fl goodName">康斯黛拉铆钉设计款纯羊毛双面尼大衣羊毛双羊毛双羊毛双羊毛双羊毛双羊毛双
+                                    黑色 M</a>
+                                <p class="fr goodMess">
+                                    ￥<span>599.00</span> × <span>2</span>
+                                </p>
+                                <a href="javascript:;" class="del fr">删除</a>
+                            </li>
+                            <li>
+                                <img src="../img/goodtest60.jpg" alt="" class="fl goodImg" />
+                                <a href="javascript:;" class="fl goodName">康斯黛拉铆钉设计款纯羊毛双面尼大衣羊毛双羊毛双羊毛双羊毛双羊毛双羊毛双
+                                    黑色 M</a>
+                                <p class="fr goodMess">
+                                    ￥<span>599.00</span> × <span>2</span>
+                                </p>
+                                <a href="javascript:;" class="del fr">删除</a>
+                            </li>
+                        </ul>
+                        <div class="cart_total clearfix">
+                            <p class="fl">
+                                共<span>1</span>件商品&nbsp;共计￥<span>1198.00</span>
+                            </p>
+                            <input type="button" class="fr toCart" value="去购物车" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav id="nav">
+        <div class="clearfix cen">
+            <div class="nav_l fl">
+                <h3 class="nav_btn">
+                    <a href="javascript:;">全部分类<i></i></a>
+                </h3>
+                <ul class="classfiy">
+                    <li>
+                        <a href="javascript:;"><i class="typeof1"></i>个户美妆</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="typeof2"></i>食品健康</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="typeof3"></i>餐厨日用</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="typeof4"></i>服装配饰</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="typeof5"></i>布艺家纺</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="typeof6"></i>家电数码</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="cen">
+        <div class="head_link">
+            <a href="../index1.html">首页</a>
+            <span>&gt;</span>
+            <a href="javascript:;">个护美妆</a>
+            <span>&gt;</span>
+            <a href="javascript:;">面部护理</a>
+            <span>&gt;</span>
+            <a href="javascript:;">Laneige兰芝 夜间修护睡眠面膜15ml（非卖品）</a>
+        </div>
+        <div class="good_content clearfix">
+            <div class="good_QR">
+                <img src="" alt="" class="dog">
+                <img src="../img/goodQr.png" alt="" class="gQ">
+                <span>微信 支付宝扫码订购</span>
+                <span>在线支付满199减10</span>
+            </div>
+            <div class="good_l fl">
+                <div class="good_big">
+                    <img src="../img/big1.jpg" alt="">
+                    <div class="area"></div>
+                    <div class="glass">
+                        <img src="../img/big1.jpg" alt="">
+                    </div>
+                </div>
+                <div class="img_change">
+                    <a href="javascript:;" class="prev"></a>
+                    <div class="img_box">
+                        <div class="img_list">
+                            <img src="../img/goods1.jpg" alt="" class="img_active">
+                            <img src="../img/goods2.jpg" alt="">
+                            <img src="../img/goods3.jpg" alt="">
+                            <img src="../img/goods1.jpg" alt="">
+                            <img src="../img/goods2.jpg" alt="">
+                            <img src="../img/goods3.jpg" alt="">
+                            <img src="../img/goods1.jpg" alt="">
+                            <img src="../img/goods2.jpg" alt="">
+                            <img src="../img/goods3.jpg" alt="">
+                        </div>
+                    </div>
+                    <a href="javascript:;" class="next"></a>
+                </div>
+                <p class="good_id">编号：<span>9207942</span> <a href="javascript:;"><i></i>收藏商品</a></p>
+            </div>
+            <div class="good_mess fl">
+                <p class="good_name">国·魔法睡眠修国·魔法睡眠修国·魔法睡眠修韩国·魔法睡眠修护力 Laneige兰芝 夜间修护睡眠面膜15ml（非卖品）</p>
+                <p class="introduction">相信很多人一开始接触到的睡眠面膜就是它了，兰芝的当家花旦！果冻一般的质地，味道清香，想敷多久就敷多久，敷着看书追剧玩手机直到睡着都可以，一觉醒来就会发现脸的状态真的棒棒的，水水嫩嫩，看起来元气十足，连上妆也更服帖。便携装，更适合旅行出游携带哦。</p>
+                <div class="good_price">
+                    <span class="title">快乐价</span>
+                    ￥<span class="price">799.00</span>
+                    <del>￥99.00</del>
+                </div>
+                <div class="freight">
+                    <span class="title">运费</span>
+                    <span class="fre_con">包邮</span>
+                </div>
+                <div class="color">
+                    <span class="title">颜色</span>
+                    <ul class="check clearfix">
+                        <li>默认<i></i></li>
+                    </ul>
+                </div>
+                <div class="size">
+                    <span class="title">尺码</span>
+                    <ul class="check clearfix">
+                        <li>默认<i></i></li>
+                    </ul>
+                </div>
+                <div class="num">
+                    <span class="title">数量</span>
+                    <input type="button" value="-" class="sub"><input type="text" value="1" class="input_con"><input
+                        type="button" value="+" class="add">
+                </div>
+                <div class="btn">
+                    <input type="button" value="立即购买" class="buy">
+                    <input type="button" value="加入购物车" class="addCart">
+                </div>
+                <p class="welfare">
+                    购买最多可以获&nbsp;<span>0.79</span> 快乐币（抵现金额<span> 0.79 </span>元)
+                </p>
+                <p>直播商品在线实付满199减10元</p>
+            </div>
+        </div>
+        <div class="good_details clearfix">
+            <div class="recom fl">
+                <h3 class="recom_title">为您推荐</h3>
+                <ul class="recom_list">
+                    <li>
+                        <div class="recom_img">
+                            <img src="../img/recom1.jpg" alt="">
+                        </div>
+                        <p class="recom_name">萃芝堂洋甘菊柔润舒缓面膜贴25毫升*5片*1盒</p>
+                        <p class="recom_price">
+                            ￥<span>528.00</span><del>￥599.00</del>
+                        </p>
+                    </li>
+                    <li>
+                        <div class="recom_img">
+                            <img src="../img/recom1.jpg" alt="">
+                        </div>
+                        <p class="recom_name">萃芝堂洋甘菊柔润舒缓面膜贴25毫升*5片*1盒</p>
+                        <p class="recom_price">
+                            ￥<span>528.00</span><del>￥599.00</del>
+                        </p>
+                    </li>
+                    <li>
+                        <div class="recom_img">
+                            <img src="../img/recom1.jpg" alt="">
+                        </div>
+                        <p class="recom_name">萃芝堂洋甘菊柔润舒缓面膜贴25毫升*5片*1盒</p>
+                        <p class="recom_price">
+                            ￥<span>528.00</span><del>￥599.00</del>
+                        </p>
+                    </li>
+                    <li>
+                        <div class="recom_img">
+                            <img src="../img/recom1.jpg" alt="">
+                        </div>
+                        <p class="recom_name">萃芝堂洋甘菊柔润舒缓面膜贴25毫升*5片*1盒</p>
+                        <p class="recom_price">
+                            ￥<span>528.00</span><del>￥599.00</del>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="details fr">
+                <div class="details_btn">
+                    <a href="javascript:;" class="btn_active par">商品参数</a>
+                    <a href="javascript:;" class="det">商品详情</a>
+                    <a href="javascript:;" class="dis">配送售后</a>
+                    <a href="javascript:;">用户评价</a>
+                </div>
+                <div class="details_con">
+                    <div class="parameter">
+                        <h4>
+                            <a href="javascript:;">商品参数</a>
+                        </h4>
+                        <div class="par_con">
+                            <ul class="clearfix">
+                                <li>
+                                    <span class="con_l">品牌:</span>
+                                    <span class="con_r">兰芝</span>
+                                </li>
+                                <li>
+                                    <span class="con_l">制造公司/原产地：</span>
+                                    <span class="con_r">韩国</span>
+                                </li>
+                                <li>
+                                    <span class="con_l">使用步骤：</span>
+                                    <span class="con_r">Step1晚间洁面后，依次涂抹爽肤水、乳液后，在入睡前涂抹。Step2取适量（建议直径为2.5cm左右）点涂于鼻尖、两颊、额头、下巴后，感受3秒钟左右的香味。Step3沿肌理于面部由内至外轻柔均匀地涂抹。Step4产品被肌肤吸收后，无需另行洁面，直接入睡。（第二天清晨洁面。）</span>
+                                </li>
+                                <li>
+                                    <span class="con_l">使用周期：</span>
+                                    <span class="con_r">每周使用2-3次。肌肤格外干燥时，可以涂抹比建议量更多的量。为了颈部护理，也可以涂抹于颈部。</span>
+                                </li>
+                                <li>
+                                    <span class="con_l">商品名称：</span>
+                                    <span class="con_r">韩国Laneige/兰芝夜间修护睡眠面膜15ml</span>
+                                </li>
+                                <li>
+                                    <span class="con_l">主商品配套：</span>
+                                    <span class="con_r">韩国Laneige/兰芝夜间修护睡眠面膜15ml</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <h4>
+                            <a href="javascript:;">商品详情</a>
+                        </h4>
+                        <div class="det_con">
+                            <img src="../img/det1.jpg" alt="">
+                            <img src="../img/det2.jpg" alt="">
+                            <img src="../img/det3.jpg" alt="">
+                            <img src="../img/det4.jpg" alt="">
+                            <img src="../img/det7.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="distribution">
+                        <h4>
+                            <a href="javascript:;">配送售后</a>
+                        </h4>
+                        <div class="dis_con clearfix">
+                            <img src="../img/kefu_01.png" alt="">
+                            <img src="../img/kefu02.png" alt="">
+                            <img src="../img/kefu03.png" alt="">
+                            <img src="../img/kefu04.png" alt="">
+                            <img src="../img/kefu05.png" alt="">
+                            <img src="../img/kefu06.png" alt="">
+                        </div>
+                    </div>
+                    <div class="evaluation">
+                        <h4>
+                            <a href="javascript:;">用户评价</a>
+                        </h4>
+                        <div class="eva">
+                            <div class="eva_title clearfix">
+                                <div class="tit_l">评价心得</div>
+                                <div class="tit_c">用户满意度</div>
+                                <div class="tit_r">用户信息</div>
+                            </div>
+                            <ul class="eva_list">
+                                <li class="clearfix">
+                                    <div class="list_l">
+                                        <div class="list_mess">效果好</div>
+                                        <div class="list_time">2018-11-27 14:16</div>
+                                    </div>
+                                    <div class="list_c">
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                    </div>
+                                    <div class="list_r">
+                                        <img src="../img/user.jpg
+                                        " alt="">
+                                        <span>冰***</span>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="list_l">
+                                        <div class="list_mess">效果好</div>
+                                        <div class="list_time">2018-11-27 14:16</div>
+                                    </div>
+                                    <div class="list_c">
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                    </div>
+                                    <div class="list_r">
+                                        <img src="../img/user.jpg
+                                            " alt="">
+                                        <span>冰***</span>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="list_l">
+                                        <div class="list_mess">效果好</div>
+                                        <div class="list_time">2018-11-27 14:16</div>
+                                    </div>
+                                    <div class="list_c">
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                    </div>
+                                    <div class="list_r">
+                                        <img src="../img/user.jpg
+                                                " alt="">
+                                        <span>冰***</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="ensure cen">
+            <img src="../img/foot_img1.jpg" alt="">
+        </div>
+        <div class="link cen clearfix">
+            <div class="link_l fl clearfix">
+                <dl>
+                    <dt>使用帮助</dt>
+                    <dd>税费收取规则</dd>
+                    <dd>新手指南</dd>
+                    <dd>用户协议</dd>
+                    <dd>常见问题</dd>
+                </dl>
+                <dl>
+                    <dt>使用帮助</dt>
+                    <dd>税费收取规则</dd>
+                    <dd>新手指南</dd>
+                    <dd>用户协议</dd>
+                    <dd>常见问题</dd>
+                </dl>
+                <dl>
+                    <dt>使用帮助</dt>
+                    <dd>税费收取规则</dd>
+                    <dd>新手指南</dd>
+                    <dd>用户协议</dd>
+                    <dd>常见问题</dd>
+                </dl>
+                <dl>
+                    <dt>使用帮助</dt>
+                    <dd>税费收取规则</dd>
+                    <dd>新手指南</dd>
+                    <dd>用户协议</dd>
+                    <dd>常见问题</dd>
+                </dl>
+                <dl>
+                    <dt>使用帮助</dt>
+                    <dd>税费收取规则</dd>
+                    <dd>新手指南</dd>
+                    <dd>用户协议</dd>
+                    <dd>常见问题</dd>
+                </dl>
+            </div>
+            <div class="link_r fr clearfix">
+                <dl>
+                    <dt>手机快乐购</dt>
+                    <dd><img src="../img/footer1.png" alt=""></dd>
+                    <dd>下载移动客户端</dd>
+                </dl>
+                <dl>
+                    <dt>快乐购微信</dt>
+                    <dd><img src="../img/footer2.png" alt=""></dd>
+                    <dd>快乐购官方微信</dd>
+                </dl>
+            </div>
+        </div>
+        <ul class="about">
+            <li><a href="javascript:;">关于芒果超媒</a></li>
+            <li><a href="javascript:;">投资者关系</a></li>
+            <li><a href="javascript:;">自营品牌</a></li>
+            <li><a href="javascript:;">联系我们</a></li>
+            <li><a href="javascript:;">营业执照</a></li>
+        </ul>
+        <div class="copyR">
+            <p>Copyright© 2006-2018 happigo. All Rights Reserved 免费服务热线: 400-705-1111 | 固话也可拨打: 400-705-8800 E-Mail:
+                service@happigo.com</p>
+            <p>湘ICP备17009657号 信息网络传播视听节目许可证号：1810530 <img src="../img/jh.png" alt="">湘公网安备 43010502000556号</p>
+            <div class="copy_img">
+                <img src="../img/footer3.png" alt="">
+                <img src="../img/footer4.jpg" alt="">
+                <img src="../img/footer5.png" alt="">
+                <img src="../img/footer6.png" alt="">
+            </div>
+        </div>
+    </footer>
+    <div class="run_top">
+        <div class="cen">
+            <ul class="clearfix">
+                <li>
+                    <a href="javascript:;" class="run_active">商品参数</a>
+                </li>
+                <li>
+                    <a href="javascript:;">商品详情</a>
+                </li>
+                <li>
+                    <a href="javascript:;">配送售后</a>
+                </li>
+                <li>
+                    <a href="javascript:;">用户评价</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="sidebar">
+        <div class="sidebar">
+            <div class="side_top">
+                <div class="user com">
+                    <i></i> <a href="javascript:;">账号</a>
+                    <div class="side_login">
+                        <i></i>
+                        <div class="unlogin">
+                            <h4>欢迎来到欢乐购</h4>
+                            <div class="input phoneNum">
+                                <input type="text" placeholder="请输入手机号码" />
+                                <p class="phone_error"></p>
+                            </div>
+                            <div class="input pwd">
+                                <input type="password" placeholder="请输入密码" />
+                                <p class="pwd_error">您的密码可能为字母、数字或符号的组合</p>
+                            </div>
+                            <div class="input checkCode">
+                                <input type="text" placeholder="验证码" />
+                                <span class="code"></span>
+                                <a href="javascript:;" class="change">换一个</a>
+                                <p class="checkCode_error">请输入验证码</p>
+                            </div>
+                            <div class="sendMess">
+                                <input type="button" value="立即登录" class="btn" />
+                                <p class="clearfix">
+                                    <a href="javascript:;" class="fl">忘记密码？</a>
+                                    <a href="html/register.html" class="fr">立即注册</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="islogin">
+                            <div class="userTitle">
+                                <img src="../img/user_center_img4.jpg" alt="" class="userLogo" />
+                                <img src="../img/hg_img_0.png" alt="" class="wangguan" />
+                                <a href="javascript:;">sajdksajdklsa&nbsp;您好</a>
+                            </div>
+                            <div class="userFunc clearfix">
+                                <div class="funcL fl">
+                                    <i></i> <a href="javascript:;">我的订单</a>
+                                </div>
+                                <div class="funcR fr">
+                                    <i></i> <a href="javascript:;">我的优惠卷</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line">
+                    <p class="line1"></p>
+                    <p class="line2"></p>
+                </div>
+                <div class="side_cart">
+                    <i></i> <a href="javascript:;">购物车</a> <span>0</span>
+                </div>
+                <div class="line">
+                    <p class="line1"></p>
+                    <p class="line2"></p>
+                </div>
+                <div class="collect com">
+                    <i></i> <a href="javascript:;"> 收藏 </a>
+                </div>
+            </div>
+            <div class="side_bottom">
+                <div class="QR">
+                    <i></i>
+                    <div class="QRimg">
+                        <img src="../img/down_app_ewm.png" alt="QRimg" />
+                    </div>
+                </div>
+                <div class="side_service">
+                    <i></i>
+                    <div class="ser_content">
+                        <h4>商品/订单</h4>
+                        <div class="ser_a">
+                            <a href="javascript:;">商品咨询</a>
+                            <a href="javascript:;">订单支付</a>
+                            <a href="javascript:;">配送查询</a>
+                            <a href="javascript:;">订单查询</a>
+                        </div>
+                        <h4>优惠/政策</h4>
+                        <div class="ser_a">
+                            <a href="javascript:;">个帐查询</a>
+                            <a href="javascript:;">活动咨询</a>
+                        </div>
+                        <h4>账户服务</h4>
+                        <div class="ser_a">
+                            <a href="javascript:;">账号咨询</a>
+                            <a href="javascript:;">密码找回</a>
+                        </div>
+                        <h4>售后服务</h4>
+                        <div class="ser_a">
+                            <a href="javascript:;">退款查询</a>
+                            <a href="javascript:;">取消/退换货</a>
+                            <a href="javascript:;">售后处理</a>
+                            <a href="javascript:;">投诉建议</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop"><i></i> <a href="javascript:;">TOP</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

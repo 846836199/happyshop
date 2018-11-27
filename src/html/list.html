@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>快乐购-列表页</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/list.css">
+    <script src="../lib/jquery-1.10.1.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/thisCom.js"></script>
+    <script src="../js/list.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div class="head_top">
+            <div class="cen clearfix">
+                <div class="loginStatus fl">
+                    <span>欢迎来到快乐购！</span>
+                    <a href="../html/login.html" class="login">[登录]</a>
+                    <a href="../html/register.html" class="reg">[注册]</a>
+                    <a href="javascript:;" class="logout">[退出]</a>
+                    <p class="reg_tip">注册即得新人专享288元购物红包<i></i></p>
+                </div>
+                <ul class="top_r clearfix fr">
+                    <li>
+                        <a href="javacript:;"><span>合作招商</span></a>
+                    </li>
+                    <li>
+                        <a href="javacript:;"><span>订单查询</span></a>
+                    </li>
+                    <li>
+                        <a href="javacript:;"><span>我的快乐购</span></a>
+                    </li>
+                    <li>
+                        <a href="javacript:;"><i></i><span>400-705-1111</span></a>
+                    </li>
+                    <li class="downApp">
+                        <a href="javacript:;"><span>下载快乐购App</span></a>
+                        <div>
+                            <img src="../img/down_load_20160411.png" alt="下载快乐购App" />
+                        </div>
+                    </li>
+                    <li class="service">
+                        <a href="javacript:;"><span>客服中心 <i></i></span></a>
+                        <div class="ser_content">
+                            <a href="javascript:;">用户中心</a>
+                            <a href="javascript:;">会员反馈</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="head_mid cen clearfix">
+            <h1 class="fl">
+                <a href="../index1.html"> 快乐购 </a>
+                <img src="../img/top_center1 (1).jpg" alt="优惠" />
+            </h1>
+            <div class="search fl">
+                <form action="#">
+                    <input type="text" class="sea_input" placeholder="大衣" /><input type="button" value="搜索" class="sea_btn" />
+                </form>
+                <p>
+                    <a href="javascript:;">面膜</a> <a href="javascript:;">京城之霜</a>
+                    <a href="javascript:;">牛奶</a> <a href="javascript:;">手表</a>
+                    <a href="javascript:;">严选</a> <a href="javascript:;">韩束</a>
+                    <a href="javascript:;">康宁</a> <a href="javascript:;">鞋</a>
+                    <a href="javascript:;">方太</a> <a href="javascript:;">洗发水</a>
+                    <a href="javascript:;">兰芝</a>
+                </p>
+                <ul class="search_list">
+                    <li class="clearfix">
+                        <span class="sea_text fl">面部</span>
+                        <span class="sea_nums fr">约983个结果</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="sea_text fl">面部</span>
+                        <span class="sea_nums fr">约983个结果</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="sea_text fl">面部</span>
+                        <span class="sea_nums fr">约983个结果</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="sea_text fl">面部</span>
+                        <span class="sea_nums fr">约983个结果</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="head_cart fr">
+                <a href="javascript:;"><i class="gou_icon"></i>我的购物车&nbsp;<i class="gou_jian"></i><span class="gou_nums">0</span></a>
+                <div class="cart_list">
+                    <div class="cartTip">购物车没商品&nbsp;赶快去选购吧</div>
+                    <div class="white"></div>
+                    <div class="cartContent">
+                        <h4>最新加入的商品</h4>
+                        <ul class="list">
+                            <li>
+                                <img src="../img/goodtest60.jpg" alt="" class="fl goodImg" />
+                                <a href="javascript:;" class="fl goodName">康斯黛拉铆钉设计款纯羊毛双面尼大衣羊毛双羊毛双羊毛双羊毛双羊毛双羊毛双
+                                    黑色 M</a>
+                                <p class="fr goodMess">
+                                    ￥<span>599.00</span> × <span>2</span>
+                                </p>
+                                <a href="javascript:;" class="del fr">删除</a>
+                            </li>
+                            <li>
+                                <img src="../img/goodtest60.jpg" alt="" class="fl goodImg" />
+                                <a href="javascript:;" class="fl goodName">康斯黛拉铆钉设计款纯羊毛双面尼大衣羊毛双羊毛双羊毛双羊毛双羊毛双羊毛双
+                                    黑色 M</a>
+                                <p class="fr goodMess">
+                                    ￥<span>599.00</span> × <span>2</span>
+                                </p>
+                                <a href="javascript:;" class="del fr">删除</a>
+                            </li>
+                            <li>
+                                <img src="../img/goodtest60.jpg" alt="" class="fl goodImg" />
+                                <a href="javascript:;" class="fl goodName">康斯黛拉铆钉设计款纯羊毛双面尼大衣羊毛双羊毛双羊毛双羊毛双羊毛双羊毛双
+                                    黑色 M</a>
+                                <p class="fr goodMess">
+                                    ￥<span>599.00</span> × <span>2</span>
+                                </p>
+                                <a href="javascript:;" class="del fr">删除</a>
+                            </li>
+                        </ul>
+                        <div class="cart_total clearfix">
+                            <p class="fl">
+                                共<span>1</span>件商品&nbsp;共计￥<span>1198.00</span>
+                            </p>
+                            <input type="button" class="fr toCart" value="去购物车" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav id="nav">
+        <div class="clearfix cen">
+            <div class="nav_l fl">
+                <h3 class="nav_btn">
+                    <a href="javascript:;">全部分类<i></i></a>
+                </h3>
+                <ul class="classfiy">
+                    <li>
+                        <a href="javascript:;"><i class="typeof1"></i>个户美妆</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="typeof2"></i>食品健康</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="typeof3"></i>餐厨日用</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="typeof4"></i>服装配饰</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="typeof5"></i>布艺家纺</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="typeof6"></i>家电数码</a>
+                        <div class="cs_item">
+                            <div class="item_con">
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                                <a href="javascript:;" class="clearfix">面部护理<span>&gt;</span></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="head_link cen">
+            <a href="../index1.html">首页</a>
+            <span>&gt;</span>
+            <a href="javascript:;">个护美妆</a>
+            <span>&gt;</span>
+            <a href="javascript:;">面部护理</a>
+        </div>
+        <div class="sort cen clearfix">
+            <dl class="sort_l clearfix fl">
+                <dt>排序:</dt>
+                <dd class="default"><a href="javascript:;">默认<i></i></a></dd>
+                <dd class="sales"><a href="javascript:;">销量<i></i></a></dd>
+                <dd class="price"><a href="javascript:;">价格<i></i></a></dd>
+                <dd class="check"><input type="checkbox">电视热销</dd>
+            </dl>
+            <ul class="sort_r fr">
+                <li class="total">共<span>938</span>个商品</li>
+                <li class="page"><span>1</span>/24页</li>
+                <li class="prev"><a href="javascript:;">上一页</a></li>
+                <li class="next"><a href="javascript:;">下一页</a></li>
+            </ul>
+        </div>
+        <div class="list_content cen">
+            <ul class="list clearfix">
+                <li>
+                    <div class="good_img">
+                        <img src="../img/list1.jpg" alt="">
+                    </div>
+                    <div class="good_mess">
+                        <p class="good_price">￥799.00<del>￥99.00</del></p>
+                        <p class="good_name">
+                            京城之霜 流金线雕精华霜套装（精华霜48g*2+美容液100ml*2）
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="good_img">
+                        <img src="../img/list1.jpg" alt="">
+                    </div>
+                    <div class="good_mess">
+                        <p class="good_price">￥799.00<del>￥99.00</del></p>
+                        <p class="good_name">
+                            京城之霜 流金线雕精华霜套装（精华霜48g*2+美容液100ml*2）
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="good_img">
+                        <img src="../img/list1.jpg" alt="">
+                    </div>
+                    <div class="good_mess">
+                        <p class="good_price">￥799.00<del>￥99.00</del></p>
+                        <p class="good_name">
+                            京城之霜 流金线雕精华霜套装（精华霜48g*2+美容液100ml*2）
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="good_img">
+                        <img src="../img/list1.jpg" alt="">
+                    </div>
+                    <div class="good_mess">
+                        <p class="good_price">￥799.00<del>￥99.00</del></p>
+                        <p class="good_name">
+                            京城之霜 流金线雕精华霜套装（精华霜48g*2+美容液100ml*2）
+                        </p>
+                    </div>
+                </li>
+                <li>
+                        <div class="good_img">
+                            <img src="../img/list1.jpg" alt="">
+                        </div>
+                        <div class="good_mess">
+                            <p class="good_price">￥799.00<del>￥99.00</del></p>
+                            <p class="good_name">
+                                京城之霜 流金线雕精华霜套装（精华霜48g*2+美容液100ml*2）
+                            </p>
+                        </div>
+                    </li>
+            </ul>
+        </div>
+        <div class="page_btn">
+            <a href="javascript::" class="prev"><i></i>上一页</a>
+            <div class="pages">
+                <a href="javascript:;" class="a_active">1</a>
+                <a href="javascript:;">2</a>
+                <a href="javascript:;">3</a>
+                <span>...</span>
+            </div>
+            <a href="javascript::" class="next">下一页<i></i></a>
+        </div>
+    </main>
+    <footer>
+        <div class="ensure cen">
+            <img src="../img/foot_img1.jpg" alt="">
+        </div>
+        <div class="link cen clearfix">
+            <div class="link_l fl clearfix">
+                <dl>
+                    <dt>使用帮助</dt>
+                    <dd>税费收取规则</dd>
+                    <dd>新手指南</dd>
+                    <dd>用户协议</dd>
+                    <dd>常见问题</dd>
+                </dl>
+                <dl>
+                    <dt>使用帮助</dt>
+                    <dd>税费收取规则</dd>
+                    <dd>新手指南</dd>
+                    <dd>用户协议</dd>
+                    <dd>常见问题</dd>
+                </dl>
+                <dl>
+                    <dt>使用帮助</dt>
+                    <dd>税费收取规则</dd>
+                    <dd>新手指南</dd>
+                    <dd>用户协议</dd>
+                    <dd>常见问题</dd>
+                </dl>
+                <dl>
+                    <dt>使用帮助</dt>
+                    <dd>税费收取规则</dd>
+                    <dd>新手指南</dd>
+                    <dd>用户协议</dd>
+                    <dd>常见问题</dd>
+                </dl>
+                <dl>
+                    <dt>使用帮助</dt>
+                    <dd>税费收取规则</dd>
+                    <dd>新手指南</dd>
+                    <dd>用户协议</dd>
+                    <dd>常见问题</dd>
+                </dl>
+            </div>
+            <div class="link_r fr clearfix">
+                <dl>
+                    <dt>手机快乐购</dt>
+                    <dd><img src="../img/footer1.png" alt=""></dd>
+                    <dd>下载移动客户端</dd>
+                </dl>
+                <dl>
+                    <dt>快乐购微信</dt>
+                    <dd><img src="../img/footer2.png" alt=""></dd>
+                    <dd>快乐购官方微信</dd>
+                </dl>
+            </div>
+        </div>
+        <ul class="about">
+            <li><a href="javascript:;">关于芒果超媒</a></li>
+            <li><a href="javascript:;">投资者关系</a></li>
+            <li><a href="javascript:;">自营品牌</a></li>
+            <li><a href="javascript:;">联系我们</a></li>
+            <li><a href="javascript:;">营业执照</a></li>
+        </ul>
+        <div class="copyR">
+            <p>Copyright© 2006-2018 happigo. All Rights Reserved 免费服务热线: 400-705-1111 | 固话也可拨打: 400-705-8800 E-Mail:
+                service@happigo.com</p>
+            <p>湘ICP备17009657号 信息网络传播视听节目许可证号：1810530 <img src="../img/jh.png" alt="">湘公网安备 43010502000556号</p>
+            <div class="copy_img">
+                <img src="../img/footer3.png" alt="">
+                <img src="../img/footer4.jpg" alt="">
+                <img src="../img/footer5.png" alt="">
+                <img src="../img/footer6.png" alt="">
+            </div>
+        </div>
+    </footer>
+
+    <div id="sidebar">
+        <div class="sidebar">
+            <div class="side_top">
+                <div class="user com">
+                    <i></i> <a href="javascript:;">账号</a>
+                    <div class="side_login">
+                        <i></i>
+                        <div class="unlogin">
+                            <h4>欢迎来到欢乐购</h4>
+                            <div class="input phoneNum">
+                                <input type="text" placeholder="请输入手机号码" />
+                                <p class="phone_error"></p>
+                            </div>
+                            <div class="input pwd">
+                                <input type="password" placeholder="请输入密码" />
+                                <p class="pwd_error">您的密码可能为字母、数字或符号的组合</p>
+                            </div>
+                            <div class="input checkCode">
+                                <input type="text" placeholder="验证码" />
+                                <span class="code"></span>
+                                <a href="javascript:;" class="change">换一个</a>
+                                <p class="checkCode_error">请输入验证码</p>
+                            </div>
+                            <div class="sendMess">
+                                <input type="button" value="立即登录" class="btn" />
+                                <p class="clearfix">
+                                    <a href="javascript:;" class="fl">忘记密码？</a>
+                                    <a href="html/register.html" class="fr">立即注册</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="islogin">
+                            <div class="userTitle">
+                                <img src="../img/user_center_img4.jpg" alt="" class="userLogo" />
+                                <img src="../img/hg_img_0.png" alt="" class="wangguan" />
+                                <a href="javascript:;">sajdksajdklsa&nbsp;您好</a>
+                            </div>
+                            <div class="userFunc clearfix">
+                                <div class="funcL fl">
+                                    <i></i> <a href="javascript:;">我的订单</a>
+                                </div>
+                                <div class="funcR fr">
+                                    <i></i> <a href="javascript:;">我的优惠卷</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line">
+                    <p class="line1"></p>
+                    <p class="line2"></p>
+                </div>
+                <div class="side_cart">
+                    <i></i> <a href="javascript:;">购物车</a> <span>0</span>
+                </div>
+                <div class="line">
+                    <p class="line1"></p>
+                    <p class="line2"></p>
+                </div>
+                <div class="collect com">
+                    <i></i> <a href="javascript:;"> 收藏 </a>
+                </div>
+            </div>
+            <div class="side_bottom">
+                <div class="QR">
+                    <i></i>
+                    <div class="QRimg">
+                        <img src="../img/down_app_ewm.png" alt="QRimg" />
+                    </div>
+                </div>
+                <div class="side_service">
+                    <i></i>
+                    <div class="ser_content">
+                        <h4>商品/订单</h4>
+                        <div class="ser_a">
+                            <a href="javascript:;">商品咨询</a>
+                            <a href="javascript:;">订单支付</a>
+                            <a href="javascript:;">配送查询</a>
+                            <a href="javascript:;">订单查询</a>
+                        </div>
+                        <h4>优惠/政策</h4>
+                        <div class="ser_a">
+                            <a href="javascript:;">个帐查询</a>
+                            <a href="javascript:;">活动咨询</a>
+                        </div>
+                        <h4>账户服务</h4>
+                        <div class="ser_a">
+                            <a href="javascript:;">账号咨询</a>
+                            <a href="javascript:;">密码找回</a>
+                        </div>
+                        <h4>售后服务</h4>
+                        <div class="ser_a">
+                            <a href="javascript:;">退款查询</a>
+                            <a href="javascript:;">取消/退换货</a>
+                            <a href="javascript:;">售后处理</a>
+                            <a href="javascript:;">投诉建议</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop"><i></i> <a href="javascript:;">TOP</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
