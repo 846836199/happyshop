@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>快乐购-购物车</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <script src="../lib/jquery-1.10.1.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/cart.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div class="head_top">
+            <div class="cen clearfix">
+                <div class="loginStatus fl">
+                    <span>欢迎来到快乐购！</span>
+                    <a href="../html/login.html" class="login">[登录]</a>
+                    <a href="../html/register.html" class="reg">[注册]</a>
+                    <a href="javascript:;" class="logout">[退出]</a>
+                    <p class="reg_tip">注册即得新人专享288元购物红包<i></i></p>
+                </div>
+                <ul class="top_r clearfix fr">
+                    <li>
+                        <a href="javacript:;"><span>合作招商</span></a>
+                    </li>
+                    <li>
+                        <a href="javacript:;"><span>订单查询</span></a>
+                    </li>
+                    <li>
+                        <a href="javacript:;"><span>我的快乐购</span></a>
+                    </li>
+                    <li>
+                        <a href="javacript:;"><i></i><span>400-705-1111</span></a>
+                    </li>
+                    <li class="downApp">
+                        <a href="javacript:;"><span>下载快乐购App</span></a>
+                        <div>
+                            <img src="../img/down_load_20160411.png" alt="下载快乐购App" />
+                        </div>
+                    </li>
+                    <li class="service">
+                        <a href="javacript:;"><span>客服中心 <i></i></span></a>
+                        <div class="ser_content">
+                            <a href="javascript:;">用户中心</a>
+                            <a href="javascript:;">会员反馈</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="head_c cen clearfix">
+            <h1 class="fl">
+                <a href="../index1.html"> 快乐购 </a>
+            </h1>
+            <div class="c_img fr"></div>
+        </div>
+    </header>
+    <main>
+        <div class="list_head cen clearfix">
+            <div class="h_l fl">
+                <input type="checkbox" class="all_check">全选
+                <span>商品</span>
+            </div>
+            <div class="h_r fr">
+                <span>单价(元)</span>
+                <span>数量</span>
+                <span>小计</span>
+                <span>操作</span>
+            </div>
+        </div>
+        <div class="cart_list cen">
+            <dl class="list_part">
+                <dt class="clearfix list_title">
+                    <div class="tit_l fl">
+                        <input type="checkbox" class="sCheck"><span>自营</span>快乐购商城
+                    </div>
+                    <div class="tit_r fr">
+                        <span>在线支付满129.00包邮</span>
+                    </div>
+                </dt>
+                <dd class="list_con clearfix list_active">
+                    <div class="good_check fl">
+                        <input type="checkbox">
+                    </div>
+                    <div class="good_img">
+                        <img src="../img/textgood1.jpg" alt="">
+                    </div>
+                    <div class="good_name"><a href="javascript:;">汇柒鲜锡盟草原红焖牛肋排 500g*10袋</a></div>
+                    <div class="good_price">￥<span>330.00</span></div>
+                    <div class="good_num">
+                        <input type="button"  class="sub" value="-">
+                        <input type="text" class="put" value="1">
+                        <input type="button" class="add" value="+">
+                    </div>
+                    <div class="good_total">￥<span>330.00</span></div>
+                    <div class="remove">
+                        <input type="button" class="del" value="删除">
+                    </div>
+                </dd>
+                <dd class="list_con clearfix list_active">
+                        <div class="good_check fl">
+                            <input type="checkbox">
+                        </div>
+                        <div class="good_img">
+                            <img src="../img/textgood1.jpg" alt="">
+                        </div>
+                        <div class="good_name"><a href="javascript:;">汇柒鲜锡盟草原红焖牛肋排 500g*10袋</a></div>
+                        <div class="good_price">￥<span>330.00</span></div>
+                        <div class="good_num">
+                            <input type="button"  class="sub" value="-">
+                            <input type="text" class="put" value="1">
+                            <input type="button" class="add" value="+">
+                        </div>
+                        <div class="good_total">￥<span>330.00</span></div>
+                        <div class="remove">
+                            <input type="button" class="del" value="删除">
+                        </div>
+                    </dd>
+                    <dd class="list_con clearfix list_active">
+                            <div class="good_check fl">
+                                <input type="checkbox">
+                            </div>
+                            <div class="good_img">
+                                <img src="../img/textgood1.jpg" alt="">
+                            </div>
+                            <div class="good_name"><a href="javascript:;">汇柒鲜锡盟草原红焖牛肋排 500g*10袋</a></div>
+                            <div class="good_price">￥<span>330.00</span></div>
+                            <div class="good_num">
+                                <input type="button"  class="sub" value="-">
+                                <input type="text" class="put" value="1">
+                                <input type="button" class="add" value="+">
+                            </div>
+                            <div class="good_total">￥<span>330.00</span></div>
+                            <div class="remove">
+                                <input type="button" class="del" value="删除">
+                            </div>
+                        </dd>
+                        <!-- <img src="../img/goodimg/goodimg01_s1.jpg" alt=""> -->
+            </dl>
+            <dl class="list_part">
+                    <dt class="clearfix list_title">
+                        <div class="tit_l fl">
+                            <input type="checkbox" class="sCheck"><span>自营</span>快乐购商城
+                        </div>
+                        <div class="tit_r fr">
+                            <span>在线支付满129.00包邮</span>
+                        </div>
+                    </dt>
+                    <dd class="list_con clearfix list_active">
+                        <div class="good_check fl">
+                            <input type="checkbox">
+                        </div>
+                        <div class="good_img">
+                            <img src="../img/textgood1.jpg" alt="">
+                        </div>
+                        <div class="good_name"><a href="javascript:;">汇柒鲜锡盟草原红焖牛肋排 500g*10袋</a></div>
+                        <div class="good_price">￥<span>330.00</span></div>
+                        <div class="good_num">
+                            <input type="button"  class="sub" value="-">
+                            <input type="text" class="put" value="1">
+                            <input type="button" class="add" value="+">
+                        </div>
+                        <div class="good_total">￥<span>330.00</span></div>
+                        <div class="remove">
+                            <input type="button" class="del" value="删除">
+                        </div>
+                    </dd>
+                    <dd class="list_con clearfix list_active">
+                            <div class="good_check fl">
+                                <input type="checkbox">
+                            </div>
+                            <div class="good_img">
+                                <img src="../img/textgood1.jpg" alt="">
+                            </div>
+                            <div class="good_name"><a href="javascript:;">汇柒鲜锡盟草原红焖牛肋排 500g*10袋</a></div>
+                            <div class="good_price">￥<span>330.00</span></div>
+                            <div class="good_num">
+                                <input type="button"  class="sub" value="-">
+                                <input type="text" class="put" value="1">
+                                <input type="button" class="add" value="+">
+                            </div>
+                            <div class="good_total">￥<span>330.00</span></div>
+                            <div class="remove">
+                                <input type="button" class="del" value="删除">
+                            </div>
+                        </dd>
+                        <dd class="list_con clearfix list_active">
+                                <div class="good_check fl">
+                                    <input type="checkbox">
+                                </div>
+                                <div class="good_img">
+                                    <img src="../img/textgood1.jpg" alt="">
+                                </div>
+                                <div class="good_name"><a href="javascript:;">汇柒鲜锡盟草原红焖牛肋排 500g*10袋</a></div>
+                                <div class="good_price">￥<span>330.00</span></div>
+                                <div class="good_num">
+                                    <input type="button"  class="sub" value="-">
+                                    <input type="text" class="put" value="1">
+                                    <input type="button" class="add" value="+">
+                                </div>
+                                <div class="good_total">￥<span>330.00</span></div>
+                                <div class="remove">
+                                    <input type="button" class="del" value="删除">
+                                </div>
+                            </dd>
+                </dl>
+        </div>
+        <div class="account clearfix cen">
+            <div class="ac_l fl">
+                <input type="checkbox" class="all_check">全选
+            </div>
+            <div class="ac_r fr clearfix">
+                <div class="good_num">
+                    已选商品<span>0</span>件
+                </div>
+                <div class="good_sum">
+                    商品总价(不含运费)<span>￥0</span>
+                </div>
+                <div class="buy_btn">
+                    <a href="javascript:;">去结算</a>
+                </div>
+            </div>
+        </div>
+        <div class="like cen">
+            <div class="like_head">
+                <span>猜你喜欢<i></i></span>
+            </div>
+            <div class="like_con">
+                暂无推荐
+            </div>
+        </div>
+    </main>
+    <footer>
+            <div class="ensure cen">
+                <img src="../img/foot_img1.jpg" alt="">
+            </div>
+            <div class="link cen clearfix">
+                <div class="link_l fl clearfix">
+                    <dl>
+                        <dt>使用帮助</dt>
+                        <dd>税费收取规则</dd>
+                        <dd>新手指南</dd>
+                        <dd>用户协议</dd>
+                        <dd>常见问题</dd>
+                    </dl>
+                    <dl>
+                        <dt>使用帮助</dt>
+                        <dd>税费收取规则</dd>
+                        <dd>新手指南</dd>
+                        <dd>用户协议</dd>
+                        <dd>常见问题</dd>
+                    </dl>
+                    <dl>
+                        <dt>使用帮助</dt>
+                        <dd>税费收取规则</dd>
+                        <dd>新手指南</dd>
+                        <dd>用户协议</dd>
+                        <dd>常见问题</dd>
+                    </dl>
+                    <dl>
+                        <dt>使用帮助</dt>
+                        <dd>税费收取规则</dd>
+                        <dd>新手指南</dd>
+                        <dd>用户协议</dd>
+                        <dd>常见问题</dd>
+                    </dl>
+                    <dl>
+                        <dt>使用帮助</dt>
+                        <dd>税费收取规则</dd>
+                        <dd>新手指南</dd>
+                        <dd>用户协议</dd>
+                        <dd>常见问题</dd>
+                    </dl>
+                </div>
+                <div class="link_r fr clearfix">
+                    <dl>
+                        <dt>手机快乐购</dt>
+                        <dd><img src="../img/footer1.png" alt=""></dd>
+                        <dd>下载移动客户端</dd>
+                    </dl>
+                    <dl>
+                        <dt>快乐购微信</dt>
+                        <dd><img src="../img/footer2.png" alt=""></dd>
+                        <dd>快乐购官方微信</dd>
+                    </dl>
+                </div>
+            </div>
+            <ul class="about">
+                <li><a href="javascript:;">关于芒果超媒</a></li>
+                <li><a href="javascript:;">投资者关系</a></li>
+                <li><a href="javascript:;">自营品牌</a></li>
+                <li><a href="javascript:;">联系我们</a></li>
+                <li><a href="javascript:;">营业执照</a></li>
+            </ul>
+            <div class="copyR">
+                <p>Copyright© 2006-2018 happigo. All Rights Reserved 免费服务热线: 400-705-1111 | 固话也可拨打: 400-705-8800 E-Mail:
+                    service@happigo.com</p>
+                <p>湘ICP备17009657号 信息网络传播视听节目许可证号：1810530 <img src="../img/jh.png" alt="">湘公网安备 43010502000556号</p>
+                <div class="copy_img">
+                    <img src="../img/footer3.png" alt="">
+                    <img src="../img/footer4.jpg" alt="">
+                    <img src="../img/footer5.png" alt="">
+                    <img src="../img/footer6.png" alt="">
+                </div>
+            </div>
+        </footer>
+</body>
+
+</html>

@@ -22,15 +22,14 @@
 }
 
 main .good_content {
-  position: relative;
   padding-bottom: 16px;
 }
 main .good_content .good_QR {
   position: absolute;
   width: 120px;
   height: 151px;
-  right: 20px;
-  top: 20px;
+  right: 85px;
+  top: 338px;
   background: url("../img/detail_icon_list.png") no-repeat 0 -433px;
   padding: 20px;
   text-align: center;
@@ -60,37 +59,41 @@ main .good_content .good_l .good_big {
   height: 381px;
   border: 1px solid #E5E5E5;
 }
-main .good_content .good_l .good_big > img {
+main .good_content .good_l .good_big .mask {
   position: absolute;
-  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: 2;
+  cursor: move;
+}
+main .good_content .good_l .good_big > img {
   width: 381px;
   height: 381px;
-  left: 0;
-  top: 0;
 }
 main .good_content .good_l .good_big .area {
   position: absolute;
   width: 180px;
   height: 180px;
-  top: 0;
-  left: 0;
   background: #fff;
   opacity: 0.8;
   filter: alpha(opacity=80);
   display: none;
 }
-main .good_content .good_l .good_big .glass {
+main .good_content .good_l .glass {
   position: absolute;
   display: none;
   width: 380px;
   height: 380px;
-  top: 0;
-  right: -390px;
+  top: 263px;
+  left: 464px;
   box-shadow: 0 0 2px #666;
+  z-index: 10;
+  overflow: hidden;
 }
-main .good_content .good_l .good_big .glass img {
-  width: 380px;
-  height: 380px;
+main .good_content .good_l .glass img {
+  position: absolute;
   font-size: 0;
 }
 main .good_content .good_l .img_change {
@@ -122,8 +125,10 @@ main .good_content .good_l .img_change .img_box .img_list {
   position: absolute;
   left: 0;
   top: 0;
+  font-size: 0;
 }
 main .good_content .good_l .img_change .img_box .img_list img {
+  margin-right: 5px;
   cursor: pointer;
   width: 56px;
   height: 56px;
@@ -221,16 +226,24 @@ main .good_content .good_mess .check li {
   line-height: 28px;
   position: relative;
   font-size: 12px;
-  border: 2px solid #C41F3A;
+  border: 2px solid #C8C8C8;
+  margin-right: 5px;
+  cursor: pointer;
 }
 main .good_content .good_mess .check li i {
   position: absolute;
   right: 0;
   bottom: 0;
-  display: block;
+  display: none;
   width: 12px;
   height: 13px;
   background: url("../img/detail_icon_list.png") no-repeat -87px 0;
+}
+main .good_content .good_mess .check .good_active {
+  border-color: #c41f3a;
+}
+main .good_content .good_mess .check .good_active i {
+  display: block;
 }
 main .good_content .good_mess .size,
 main .good_content .good_mess .color {
@@ -276,6 +289,7 @@ main .good_content .good_mess .btn input {
   border: 2px solid #A82045;
   font-size: 14px;
   cursor: pointer;
+  outline: none;
 }
 main .good_content .good_mess .btn .buy {
   background: #A82045;
@@ -285,6 +299,19 @@ main .good_content .good_mess .btn .buy {
 main .good_content .good_mess .btn .addCart {
   background: #fff;
   color: #A82045;
+}
+main .good_content .good_mess .btn .addPoint {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  background: #A82045;
+  border-radius: 50%;
+  font-size: 12px;
+  color: #fff;
+  position: absolute;
+  opacity: 0;
+  z-index: 100;
 }
 main .good_content .good_mess p {
   font-size: 14px;

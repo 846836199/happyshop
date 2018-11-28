@@ -1231,6 +1231,8 @@ main {
 
             .tip {
               line-height: 32px;
+              height: 32px;
+              overflow: hidden;
               color: #787878;
             }
 
@@ -1379,7 +1381,7 @@ main {
       font-size: 12px;
       height: 344px;
       position: relative;
-
+      // background: #fff;
       >a {
         position: absolute;
         top: 50%;
@@ -1420,14 +1422,14 @@ main {
           .limit_img {
             position: relative;
 
-            >img {
+            img {
               display: block;
               width: 192px;
               height: 192px;
             }
 
             p {
-              // display: none;
+              display: none;
               position: absolute;
               width: 110px;
               height: 110px;
@@ -1478,6 +1480,9 @@ main {
 
             .limit_title {
               color: #999999;
+              height: 18px;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
 
             .name {
@@ -1525,6 +1530,7 @@ main {
   //公共样式
   .list_style {
     li {
+      cursor: pointer;
       background: #fff;
       width: 180px;
       margin-right: 16px;
@@ -1543,6 +1549,9 @@ main {
         font-size: 12px;
         p {
           line-height: 18px;
+          width:100%;
+          overflow: hidden;
+          height: 18px;
         }
 
         .good_title {
@@ -1625,6 +1634,7 @@ main {
       overflow: hidden;
       .new_list {
         width:1010px;
+        height: 300px;
         li {
           float: left;
           .new_img{

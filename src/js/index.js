@@ -7,257 +7,492 @@ $(function () {
         1: ["密码可能为字母、数字或符号的组合", "密码不能为空"],
         2: ["请输入验证码", "验证码不能为空", "验证码错误"]
     }
+
+    //广告栏 节点 宽度 开关
+    var lisW = 0;
+    var key = true;
+    var key2 = true;
+
+    //限时抢购 节点 宽度 开关
+    var limW1 = 0;
+    var limW2 = 0;
+    var lim_key = true;
+    var lim_key2 = true;
+
+    //新品推荐
+    var newNum = 0;
+    var newAllNum = 0;
     // console.log(uid);
-    //已经登录
-    if (uid) {
-        //隐藏登录注册相关信息
-        $("#header .loginStatus").find(".login").eq(0).hide();
-        $("#header .loginStatus").find(".reg").eq(0).hide();
-        $("#header .loginStatus").find(".reg_tip").eq(0).hide();
-        $("#header .loginStatus").find("span").eq(0).html("欢迎您，" + uid);
-        //显示用户界面
-        $("#header .loginStatus").find(".logout").eq(0).show();
-
-        //侧边栏 用户状态
-        $("#sidebar .side_login").find(".islogin").eq(0).show();
-        $("#sidebar .side_login").find(".unlogin").eq(0).hide();
-        $("#sidebar .islogin").find("a").eq(0).html(uid + "&nbsp;您好");
-    } else {
-        //侧边栏 验证码初始化
-        $("#sidebar .checkCode").find(".code").eq(0).html(randomNL(4));
-    }
-
-    //用户退出
-    $("#header .loginStatus").find(".logout").click(function () {
-        if (uid) {
-            var tip = confirm("您确定要退出吗？");
-            // console.log(uid);
-            if (tip) {
-                var day = new Date();
-                day.setDate(day.getDate() - 1);
-                document.cookie = "uid=out;expires=" + day.toUTCString() + ";path=/";
-                location.href = "index1.html";
+//渲染区-------------------------------------------------------------------------------》
+    //--------广告栏渲染
+    //------------广告第一栏
+    $.ajax({
+        type:"GET",
+        url:"api/goodlist.php",
+        cache:false,
+        data:{"page":1,"nums":10,"order":"asc"},
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.code == "0"){
+                var list = res.datalist;
+                // console.log(list);
+                // console.log(list[0].bigimg.split("-")[0].slice(3));
+                var html = list.map(function(item){
+                    //获取第一张大图
+                    var imgstr = item.bigimg.split("-")[0];
+                    //截取图片路径
+                    imgstr = imgstr.slice(3);
+                    return `<li data-id="${item.gid}">
+                                <a href="javascript:;"> <img src="${imgstr}" alt="" /> </a>
+                                <p class="tip">${item.jianjie}</p>
+                                <p class="goodName">
+                                <a href="javascript:;">${item.goodname}</a>
+                                </p>
+                                <p class="goodPrice">
+                                ￥<span>${item.price}</span>&nbsp;<del>￥${item.delprice}</del>
+                                </p>
+                                <span class="wait"><i></i>10:45</span>
+                                <span class="now">正在播出</span>
+                            </li>`;
+                }).join("");
+                $(".ad .ad_content").eq(0).find(".list").html(html);
+                var adW = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(0).find("li").size();
+                // var adW2 = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(1).find("li").size();
+                //一页的宽度
+                lisW = ($(".ad .list").find("li").eq(0).width()+6)*5;
+                // console.log(lisW);
+                //设置ul的宽度 left的坐标
+                $(".ad .list").eq(0).css({
+                    "width":adW+"px",
+                    "left":0
+                });
             }
         }
     });
-    //点击隐藏注册福利提示
-    $("#header .loginStatus .reg_tip").find("i").eq(0).click(function () {
-        $(this).parent().hide();
-    });
-
-    //下载快乐购App二维码显示
-    $("#header .downApp").hover(function () {
-        $(this).find("div").eq(0).show();
-    }, function () {
-        $(this).find("div").eq(0).hide();
-    });
-
-    //客服中心菜单显示
-    $("#header .service").hover(function () {
-        $(this).addClass("ser_active");
-        $(this).find(".ser_content").eq(0).show();
-    }, function () {
-        $(this).removeClass("ser_active");
-        $(this).find(".ser_content").eq(0).hide();
-    });
-
-    //搜索框监听内容更改显示搜索提示
-    $("#header .search").bind('input propertychange', function () {
-        // console.log($(this));
-        var val = $.trim($(this).find(".sea_input").eq(0).val());
-        //搜索内容为空时隐藏
-        if (val) {
-            $(this).find(".search_list").eq(0).show();
-        } else {
-            $(this).find(".search_list").eq(0).hide();
+    //------------广告第二栏
+    $.ajax({
+        type:"GET",
+        url:"api/goodlist.php",
+        cache:false,
+        data:{"page":2,"nums":6,"order":"asc"},
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.code == "0"){
+                var list = res.datalist;
+                // console.log(list);
+                // console.log(list[0].bigimg.split("-")[0].slice(3));
+                var html = list.map(function(item){
+                    //获取第一张大图
+                    var imgstr = item.bigimg.split("-")[0];
+                    //截取图片路径
+                    imgstr = imgstr.slice(3);
+                    return `<li data-id="${item.gid}">
+                                <a href="javascript:;"> <img src="${imgstr}" alt="" /> </a>
+                                <p class="tip">${item.jianjie}</p>
+                                <p class="goodName">
+                                <a href="javascript:;">${item.goodname}</a>
+                                </p>
+                                <p class="goodPrice">
+                                ￥<span>${item.price}</span>&nbsp;<del>￥${item.delprice}</del>
+                                </p>
+                                <span class="wait"><i></i>10:45</span>
+                                <span class="now">正在播出</span>
+                            </li>`;
+                }).join("");
+                $(".ad .ad_content").eq(1).find(".list").html(html);
+                var adW = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(1).find("li").size();
+                // var adW2 = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(1).find("li").size();
+                //一页的宽度
+                lisW = ($(".ad .list").find("li").eq(0).width()+6)*5;
+                // console.log(lisW);
+                //设置ul的宽度 left的坐标
+                $(".ad .list").eq(1).css({
+                    "width":adW+"px",
+                    "left":0
+                });
+            }
         }
     });
-    $("#header .search").find(".sea_input").eq(0).blur(function () {
-        $("#header .search").find(".search_list").eq(0).hide(1000);
-    });
-    $("#header .search_list").find("li").hover(function () {
-        $(this).addClass("sea_hover");
-    }, function () {
-        $(this).removeClass("sea_hover");
+
+    //--------限时抢购
+    $.ajax({
+        type:"GET",
+        url:"api/goodlist.php",
+        cache:false,
+        data:{"page":1,nums:30},
+        success:function(data){
+            var res = JSON.parse(data);
+            // console.log(res);
+            if(res.code == "0"){
+                var list = res.datalist;
+                var html1 = "";
+                var html2 = "";
+                var html3 = "";
+                for(let i=0;i<10;i++){
+                    var imgstr = list[i].bigimg.split("-")[0];
+                    //截取图片路径
+                    imgstr = imgstr.slice(3);
+                    html1+= `<li data-id="${list[i].gid}">
+                                <div class="limit_img">
+                                <img src="${imgstr}" alt="" />
+                                <p><span>抢光了!</span></p>
+                                </div>
+                                <p class="limit_time">
+                                <i></i>&nbsp;据开始<span>&nbsp;12:&nbsp;12:&nbsp;12</span>
+                                </p>
+                                <div class="limit_name">
+                                <p class="limit_title">${list[i].jianjie}</p>
+                                <p class="name">${list[i].goodname}</p>
+                                </div>
+                                <div class="limit_price">
+                                <p>￥<span>${list[i].price}</span><del>￥${list[i].delprice}</del></p>
+                                <input type="button" value="立即抢购" />
+                                </div>
+                            </li>`;
+                }
+                for(let i=10;i<20;i++){
+                    var imgstr = list[i].bigimg.split("-")[0];
+                    //截取图片路径
+                    imgstr = imgstr.slice(3);
+                    html2+= `<li data-id="${list[i].gid}">
+                                <div class="limit_img">
+                                <img src="${imgstr}" alt="" />
+                                <p><span>抢光了!</span></p>
+                                </div>
+                                <p class="limit_time">
+                                <i></i>&nbsp;据开始<span>&nbsp;12:&nbsp;12:&nbsp;12</span>
+                                </p>
+                                <div class="limit_name">
+                                <p class="limit_title">${list[i].jianjie}</p>
+                                <p class="name">${list[i].goodname}</p>
+                                </div>
+                                <div class="limit_price">
+                                <p>￥<span>${list[i].price}</span><del>￥${list[i].delprice}</del></p>
+                                <input type="button" value="立即抢购" />
+                                </div>
+                            </li>`;
+                }
+                for(let i=20;i<30;i++){
+                    var imgstr = list[i].bigimg.split("-")[0];
+                    //截取图片路径
+                    imgstr = imgstr.slice(3);
+                    html3+= `<li data-id="${list[i].gid}">
+                                <div class="limit_img">
+                                <img src="${imgstr}" alt="" />
+                                <p><span>抢光了!</span></p>
+                                </div>
+                                <p class="limit_time">
+                                <i></i>&nbsp;据开始<span>&nbsp;12:&nbsp;12:&nbsp;12</span>
+                                </p>
+                                <div class="limit_name">
+                                <p class="limit_title">${list[i].jianjie}</p>
+                                <p class="name">${list[i].goodname}</p>
+                                </div>
+                                <div class="limit_price">
+                                <p>￥<span>${list[i].price}</span><del>￥${list[i].delprice}</del></p>
+                                <input type="button" value="立即抢购" />
+                                </div>
+                            </li>`;
+                }
+                //8点专场渲染
+                $(".limit_buy .limit_content").eq(0).find(".limit_list").html(html1);
+                //15点专场
+                $(".limit_buy .limit_content").eq(1).find(".limit_list").html(html2);
+                //19点专场
+                $(".limit_buy .limit_content").eq(2).find(".limit_list").html(html3);
+                //设置列表默认宽度
+                limW1 = $(".limit_buy .limit_list").find("li").eq(0).width()+10;
+                //一页宽度
+                limW2 = limW1*5;
+                $(".limit_buy .limit_content").each(function(){
+                    var w = limW1*$(this).find(".limit_list").eq(0).find("li").size();
+                    // console.log(w);
+                    $(this).find(".limit_list").eq(0).css("width",w+"px");
+                });
+            }
+            
+        }
     });
 
-    //头部购物车显示
-    $("#header .head_cart").eq(0).hover(function () {
-        $(this).addClass("head_cart_hover");
-        $(this).find(".cart_list").eq(0).show();
-    }, function () {
-        $(this).removeClass("head_cart_hover");
-        $(this).find(".cart_list").eq(0).hide();
+    //--------新品推荐
+    $.ajax({
+        type:"GET",
+        cache:false,
+        url:"api/goodlist.php",
+        data:{page:4,nums:5},
+        success:function(data){
+            var res = JSON.parse(data);
+            // console.log(res);
+            newAllNum = res.total;
+            var list = res.datalist;
+            var html = list.map(function(item){
+                var imgstr = item.bigimg.split("-")[0];
+                //截取图片路径
+                imgstr = imgstr.slice(3);
+                return `<li data-id="${item.gid}">
+                            <div class="new_img"><img src="${imgstr}" alt="" /></div>
+                            <div class="good_name">
+                            <p class="good_title">${item.jianjie}</p>
+                            <p class="name">${item.goodname}</p>
+                            </div>
+                            <div class="good_price">
+                            ￥<span>${item.price}</span><del>￥${item.delprice}</del>
+                            </div>
+                        </li>`;
+            }).join("");
+            $(".new_rec .new_content").find(".new_list").html(html);
+        }
     });
-
-    //分类导航
-    $("#nav .classfiy").find("li").hover(function () {
-        $(this).addClass("li_hover");
-    }, function () {
-        $(this).removeClass("li_hover");
-    });
-
-    $("#nav .classfiy").find("a").hover(function () {
-        $(this).addClass("item_hover");
-    }, function () {
-        $(this).removeClass("item_hover");
-    });
-
-    //侧边栏
-    //-----用户状态
-    //---------移入显示
-    $("#sidebar .user").hover(function () {
-        $(this).addClass("cart_bg");
-        $(this).find(".side_login").eq(0).show();
-    }, function () {
-        $(this).removeClass("cart_bg");
-        $(this).find(".side_login").eq(0).hide();
-    });
-
-    //-------------登录
-    $("#sidebar .unlogin .input").find("input").focus(function () {
-        //获取焦点时去除红框
-        $(this).removeClass("focus");
-        $(this).nextAll("p").eq(0).css("visibility", "visible");
-        $(this).nextAll("p").eq(0).html(tipStr[$(this).parent().index()]);
-    });
-    //失焦时隐藏提示信息
-    $("#sidebar .unlogin .input").find("input").blur(function () {
-        $(this).nextAll("p").css("visibility", "hidden");
-    });
-    //点击更换验证码
-    $("#sidebar .checkCode").find(".change").eq(0).click(function () {
-        $(this).prev().html(randomNL(4));
-    });
-
-    $("#sidebar .unlogin").find(".btn").eq(0).click(function () {
-        // console.log(1);
-        //更换验证码
-        var val1 = $.trim($("#sidebar .unlogin").find("input").eq(0).val());
-        //用户名为空
-        if (val1) {
-            //密码为空
-            var val2 = $.trim($("#sidebar .unlogin").find("input").eq(1).val());
-            if (val2) {
-                //验证码为空
-                var val3 = $.trim($("#sidebar .unlogin").find("input").eq(2).val());
-                if (val3) {
-                    //验证码错误
-                    var val4 = $("#sidebar .checkCode").find(".code").eq(0).html().toLowerCase();
-                    if (val3 == val4) {
-                        //账号密码验证
-                        $.ajax({
-                            type: "POST",
-                            url: "api/login.php",
-                            data: {
-                                "username": val1,
-                                "password": val2
-                            },
-                            success: function (data) {
-                                var res = JSON.parse(data);
-                                if (res.code == "0") {
-                                    // console.log(res);
-                                    alert("登录成功！");
-                                    var day = new Date();
-                                    day.setDate(day.getDate() + 7);
-                                    document.cookie = "uid=" + res.uid + ";expires=" + day.toUTCString() + ";path=/";
-                                    location.href = "index1.html";
-                                } else {
-                                    $("#sidebar .unlogin").find("p").eq(0).css("visibility", "visible");
-                                    $("#sidebar .unlogin").find("p").eq(0).html("<i></i>用户名或密码错误！");
-                                    //更新验证码
-                                    $("#sidebar .checkCode").find(".code").eq(0).html(randomNL(4));
+//功能区-------------------------------------------------------------------------------》
+        //已经登录
+        if (uid) {
+            //隐藏登录注册相关信息
+            $("#header .loginStatus").find(".login").eq(0).hide();
+            $("#header .loginStatus").find(".reg").eq(0).hide();
+            $("#header .loginStatus").find(".reg_tip").eq(0).hide();
+            $("#header .loginStatus").find("span").eq(0).html("欢迎您，" + uid);
+            //显示用户界面
+            $("#header .loginStatus").find(".logout").eq(0).show();
+    
+            //侧边栏 用户状态
+            $("#sidebar .side_login").find(".islogin").eq(0).show();
+            $("#sidebar .side_login").find(".unlogin").eq(0).hide();
+            $("#sidebar .islogin").find("a").eq(0).html(uid + "&nbsp;您好");
+        } else {
+            //侧边栏 验证码初始化
+            $("#sidebar .checkCode").find(".code").eq(0).html(randomNL(4));
+        }
+    
+        //用户退出
+        $("#header .loginStatus").find(".logout").click(function () {
+            if (uid) {
+                var tip = confirm("您确定要退出吗？");
+                // console.log(uid);
+                if (tip) {
+                    var day = new Date();
+                    day.setDate(day.getDate() - 1);
+                    document.cookie = "uid=out;expires=" + day.toUTCString() + ";path=/";
+                    location.href = "index1.html";
+                }
+            }
+        });
+        //点击隐藏注册福利提示
+        $("#header .loginStatus .reg_tip").find("i").eq(0).click(function () {
+            $(this).parent().hide();
+        });
+    
+        //下载快乐购App二维码显示
+        $("#header .downApp").hover(function () {
+            $(this).find("div").eq(0).show();
+        }, function () {
+            $(this).find("div").eq(0).hide();
+        });
+    
+        //客服中心菜单显示
+        $("#header .service").hover(function () {
+            $(this).addClass("ser_active");
+            $(this).find(".ser_content").eq(0).show();
+        }, function () {
+            $(this).removeClass("ser_active");
+            $(this).find(".ser_content").eq(0).hide();
+        });
+    
+        //搜索框监听内容更改显示搜索提示
+        $("#header .search").bind('input propertychange', function () {
+            // console.log($(this));
+            var val = $.trim($(this).find(".sea_input").eq(0).val());
+            //搜索内容为空时隐藏
+            if (val) {
+                $(this).find(".search_list").eq(0).show();
+            } else {
+                $(this).find(".search_list").eq(0).hide();
+            }
+        });
+        $("#header .search").find(".sea_input").eq(0).blur(function () {
+            $("#header .search").find(".search_list").eq(0).hide(1000);
+        });
+        $("#header .search_list").find("li").hover(function () {
+            $(this).addClass("sea_hover");
+        }, function () {
+            $(this).removeClass("sea_hover");
+        });
+    
+        //头部购物车显示
+        $("#header .head_cart").eq(0).hover(function () {
+            $(this).addClass("head_cart_hover");
+            $(this).find(".cart_list").eq(0).show();
+        }, function () {
+            $(this).removeClass("head_cart_hover");
+            $(this).find(".cart_list").eq(0).hide();
+        });
+    
+        //分类导航
+        $("#nav .classfiy").find("li").hover(function () {
+            $(this).addClass("li_hover");
+        }, function () {
+            $(this).removeClass("li_hover");
+        });
+    
+        $("#nav .classfiy").find("a").hover(function () {
+            $(this).addClass("item_hover");
+        }, function () {
+            $(this).removeClass("item_hover");
+        });
+    
+        //侧边栏
+        //-----用户状态
+        //---------移入显示
+        $("#sidebar .user").hover(function () {
+            $(this).addClass("cart_bg");
+            $(this).find(".side_login").eq(0).show();
+        }, function () {
+            $(this).removeClass("cart_bg");
+            $(this).find(".side_login").eq(0).hide();
+        });
+    
+        //-------------登录
+        $("#sidebar .unlogin .input").find("input").focus(function () {
+            //获取焦点时去除红框
+            $(this).removeClass("focus");
+            $(this).nextAll("p").eq(0).css("visibility", "visible");
+            $(this).nextAll("p").eq(0).html(tipStr[$(this).parent().index()]);
+        });
+        //失焦时隐藏提示信息
+        $("#sidebar .unlogin .input").find("input").blur(function () {
+            $(this).nextAll("p").css("visibility", "hidden");
+        });
+        //点击更换验证码
+        $("#sidebar .checkCode").find(".change").eq(0).click(function () {
+            $(this).prev().html(randomNL(4));
+        });
+    
+        $("#sidebar .unlogin").find(".btn").eq(0).click(function () {
+            // console.log(1);
+            //更换验证码
+            var val1 = $.trim($("#sidebar .unlogin").find("input").eq(0).val());
+            //用户名为空
+            if (val1) {
+                //密码为空
+                var val2 = $.trim($("#sidebar .unlogin").find("input").eq(1).val());
+                if (val2) {
+                    //验证码为空
+                    var val3 = $.trim($("#sidebar .unlogin").find("input").eq(2).val());
+                    if (val3) {
+                        //验证码错误
+                        var val4 = $("#sidebar .checkCode").find(".code").eq(0).html().toLowerCase();
+                        if (val3 == val4) {
+                            //账号密码验证
+                            $.ajax({
+                                type: "POST",
+                                url: "api/login.php",
+                                data: {
+                                    "username": val1,
+                                    "password": val2
+                                },
+                                success: function (data) {
+                                    var res = JSON.parse(data);
+                                    if (res.code == "0") {
+                                        // console.log(res);
+                                        alert("登录成功！");
+                                        var day = new Date();
+                                        day.setDate(day.getDate() + 7);
+                                        document.cookie = "uid=" + res.uid + ";expires=" + day.toUTCString() + ";path=/";
+                                        location.href = "index1.html";
+                                    } else {
+                                        $("#sidebar .unlogin").find("p").eq(0).css("visibility", "visible");
+                                        $("#sidebar .unlogin").find("p").eq(0).html("<i></i>用户名或密码错误！");
+                                        //更新验证码
+                                        $("#sidebar .checkCode").find(".code").eq(0).html(randomNL(4));
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        } else {
+                            $("#sidebar .unlogin").find("p").eq(2).css("visibility", "visible");
+                            $("#sidebar .unlogin").find("p").eq(2).html("<i></i>" + tipStr[2][2]);
+                        }
                     } else {
+                        $("#sidebar .unlogin").find("input").eq(2).addClass("focus");
                         $("#sidebar .unlogin").find("p").eq(2).css("visibility", "visible");
-                        $("#sidebar .unlogin").find("p").eq(2).html("<i></i>" + tipStr[2][2]);
+                        $("#sidebar .unlogin").find("p").eq(2).html("<i></i>" + tipStr[2][1]);
                     }
                 } else {
-                    $("#sidebar .unlogin").find("input").eq(2).addClass("focus");
-                    $("#sidebar .unlogin").find("p").eq(2).css("visibility", "visible");
-                    $("#sidebar .unlogin").find("p").eq(2).html("<i></i>" + tipStr[2][1]);
+                    $("#sidebar .unlogin").find("p").eq(1).css("visibility", "visible");
+                    $("#sidebar .unlogin").find("p").eq(1).html("<i></i>" + tipStr[1][1]);
                 }
             } else {
-                $("#sidebar .unlogin").find("p").eq(1).css("visibility", "visible");
-                $("#sidebar .unlogin").find("p").eq(1).html("<i></i>" + tipStr[1][1]);
+                $("#sidebar .unlogin").find("p").eq(0).css("visibility", "visible");
+                $("#sidebar .unlogin").find("p").eq(0).html("<i></i>" + tipStr[0][1]);
             }
-        } else {
-            $("#sidebar .unlogin").find("p").eq(0).css("visibility", "visible");
-            $("#sidebar .unlogin").find("p").eq(0).html("<i></i>" + tipStr[0][1]);
-        }
-    });
-
-    //------------用户功能框
-    $("#sidebar .islogin .userFunc").find("div").hover(function () {
-        $(this).addClass("func_hover");
-    }, function () {
-        $(this).removeClass("func_hover");
-    });
-
-    //-----------购物车功能
-    $("#sidebar .side_cart").eq(0).hover(function () {
-        $(this).addClass("cart_bg");
-    }, function () {
-        $(this).removeClass("cart_bg");
-    });
-    $("#sidebar .side_cart").eq(0).click(function () {
-        if (uid) {
-            location.href = "cart.html";
-        } else {
-            location.href = "login.html";
-        }
-    });
-
-    //------------收藏
-    $("#sidebar .collect").eq(0).hover(function () {
-        $(this).addClass("cart_bg");
-    }, function () {
-        $(this).removeClass("cart_bg");
-    });
-    $("#sidebar .collect").eq(0).click(function () {
-        if (uid) {
-            alert("暂不支持");
-        } else {
-            location.href = "login.html";
-        }
-    });
-
-    //-----------二维码
-    $("#sidebar .QR").eq(0).hover(function () {
-        $(this).addClass("cart_bg");
-        $(this).find(".QRimg").eq(0).show();
-    }, function () {
-        $(this).removeClass("cart_bg");
-        $(this).find(".QRimg").eq(0).hide();
-    });
-
-    //------------客服
-    $("#sidebar .side_service").eq(0).hover(function () {
-        $(this).addClass("cart_bg");
-        $(this).find(".ser_content").eq(0).show();
-    }, function () {
-        $(this).removeClass("cart_bg");
-        $(this).find(".ser_content").eq(0).hide();
-    });
-
-    //-----------返回顶部
-    $("#sidebar .toTop").eq(0).hover(function () {
-        $(this).addClass("cart_bg");
-    }, function () {
-        $(this).removeClass("cart_bg");
-    });
-    $("#sidebar .toTop").eq(0).click(function () {
-        var h = window.scrollY;
-        console.log(h);
-        if (h > 20) {
-            $("html,body").animate({
-                scrollTop: 0
-            },"slow");
-        }
-    });
-
+        });
+    
+        //------------用户功能框
+        $("#sidebar .islogin .userFunc").find("div").hover(function () {
+            $(this).addClass("func_hover");
+        }, function () {
+            $(this).removeClass("func_hover");
+        });
+    
+        //-----------购物车功能
+        $("#sidebar .side_cart").eq(0).hover(function () {
+            $(this).addClass("cart_bg");
+        }, function () {
+            $(this).removeClass("cart_bg");
+        });
+        $("#sidebar .side_cart").eq(0).click(function () {
+            if (uid) {
+                location.href = "cart.html";
+            } else {
+                location.href = "login.html";
+            }
+        });
+    
+        //------------收藏
+        $("#sidebar .collect").eq(0).hover(function () {
+            $(this).addClass("cart_bg");
+        }, function () {
+            $(this).removeClass("cart_bg");
+        });
+        $("#sidebar .collect").eq(0).click(function () {
+            if (uid) {
+                alert("暂不支持");
+            } else {
+                location.href = "login.html";
+            }
+        });
+    
+        //-----------二维码
+        $("#sidebar .QR").eq(0).hover(function () {
+            $(this).addClass("cart_bg");
+            $(this).find(".QRimg").eq(0).show();
+        }, function () {
+            $(this).removeClass("cart_bg");
+            $(this).find(".QRimg").eq(0).hide();
+        });
+    
+        //------------客服
+        $("#sidebar .side_service").eq(0).hover(function () {
+            $(this).addClass("cart_bg");
+            $(this).find(".ser_content").eq(0).show();
+        }, function () {
+            $(this).removeClass("cart_bg");
+            $(this).find(".ser_content").eq(0).hide();
+        });
+    
+        //-----------返回顶部
+        $("#sidebar .toTop").eq(0).hover(function () {
+            $(this).addClass("cart_bg");
+        }, function () {
+            $(this).removeClass("cart_bg");
+        });
+        $("#sidebar .toTop").eq(0).click(function () {
+            var h = window.scrollY;
+            console.log(h);
+            if (h > 20) {
+                $("html,body").animate({
+                    scrollTop: 0
+                },"slow");
+            }
+        });
     //轮播图
     //---------li图片定位
     bannerResize();
@@ -342,24 +577,24 @@ $(function () {
     });
 
     //广告栏轮播
-    var adW = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(0).find("li").size();
-    var adW2 = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(1).find("li").size();
-    //一页的宽度
-    var lisW = ($(".ad .list").find("li").eq(0).width()+6)*5;
-    // console.log(lisW);
-    //设置ul的宽度 left的坐标
-    $(".ad .list").eq(0).css({
-        "width":adW+"px",
-        "left":0
-    });
-    $(".ad .list").eq(1).css({
-        "width":adW2+"px",
-        "left":0
-    });
-    
-    //点击滚动
-    var key = true;
-    var key2 = true;
+    // var adW = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(0).find("li").size();
+    // var adW2 = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(1).find("li").size();
+    // //一页的宽度
+    // var lisW = ($(".ad .list").find("li").eq(0).width()+6)*5;
+    // // console.log(lisW);
+    // //设置ul的宽度 left的坐标
+    // $(".ad .list").eq(0).css({
+    //     "width":adW+"px",
+    //     "left":0
+    // });
+    // $(".ad .list").eq(1).css({
+    //     "width":adW2+"px",
+    //     "left":0
+    // });
+    //---------点击滚动
+
+    $(".ad .ad_content").find(".list").data("num",0);
+    // console.log($(".ad .ad_content").find(".list").eq(0).data("num"));
     $(".ad .ad_content").find(".next").click(function(){
         // $(this).next().find(".list").stop(false,true);
         var le = $(this).next().find(".list").css("left");
@@ -367,8 +602,9 @@ $(function () {
         // console.log(le);
         //da
         if(le>-($(this).next().find(".list").width()-lisW) && key){
-            le = le*1+lisW;
-            console.log(le);
+            var num = $(this).next().find(".list").data("num")+1;
+            
+            le = (le*1+lisW)*num;
             key = false;
             $(this).next().find(".list").animate({left:-le+"px"},function(){
                 key = true;
@@ -381,26 +617,17 @@ $(function () {
         le = le.slice(0,-2);
         // console.log(le);
         if(le<0 && key2){
-            le = le*1+lisW;
+            var num = $(this).next().find(".list").data("num")-1;
+            le = (le*1+lisW)*num;
             key2 = false;
-            $(this).nextAll(".ad_list").eq(0).find(".list").animate({left:+le+"px"},function(){
+            $(this).nextAll(".ad_list").eq(0).find(".list").animate({left:-le+"px"},function(){
                 key2 = true;
             });
         }
     });
     
     //限时抢购轮播
-    //默认宽度
-    var limW1 = $(".limit_buy .limit_list").find("li").eq(0).width()+10;
-    //一页宽度
-    var limW2 = limW1*5;
-    $(".limit_buy .limit_content").each(function(){
-        var w = limW1*$(this).find(".limit_list").eq(0).find("li").size();
-        // console.log(w);
-        $(this).find(".limit_list").eq(0).css("width",w+"px");
-    });
-    var lim_key = true;
-    var lim_key2 = true;
+
     $(".limit_buy .limit_content").find(".next").click(function(){
         // $(this).next().find(".list").stop(false,true);
         var le = $(this).prevAll(".limit_list").eq(0).css("left");
@@ -409,7 +636,7 @@ $(function () {
         if(le>-($(this).prevAll(".limit_list").eq(0).width()-limW2) && lim_key){
             lim_key =false;
             wid = le*1 + limW2;
-            console.log(wid);
+            // console.log(wid);
             $(this).prevAll(".limit_list").eq(0).animate({left:-wid+"px"},function(){
                 lim_key = true;
             });
@@ -418,7 +645,7 @@ $(function () {
     $(".limit_buy .limit_content").find(".prev").click(function(){
         var le = $(this).prev().css("left");
         le = le.slice(0,-2);
-        console.log(le);
+        // console.log(le);
         if(le<0 && lim_key2){
             wid = le*1 + limW2;
             lim_key2 = false;
@@ -456,6 +683,42 @@ $(function () {
     });
     $(".new_rec .new_list").on("mouseleave","li",function(){
         $(this).removeClass("list_hover");
+    });
+    //----------点击换新
+    $(".new_rec .new_head").find(".change").click(function(){
+        newNum++;
+        if(newNum*5<=newAllNum){
+            $.ajax({
+                type:"GET",
+                cache:false,
+                url:"api/goodlist.php",
+                data:{page:newNum,nums:5},
+                success:function(data){
+                    var res = JSON.parse(data);
+                    // console.log(res);
+                    newAllNum = res.total;
+                    var list = res.datalist;
+                    var html = list.map(function(item){
+                        var imgstr = item.bigimg.split("-")[0];
+                        //截取图片路径
+                        imgstr = imgstr.slice(3);
+                        return `<li data-id="${item.gid}">
+                                    <div class="new_img"><img src="${imgstr}" alt="" /></div>
+                                    <div class="good_name">
+                                    <p class="good_title">${item.jianjie}</p>
+                                    <p class="name">${item.goodname}</p>
+                                    </div>
+                                    <div class="good_price">
+                                    ￥<span>${item.price}</span><del>￥${item.delprice}</del>
+                                    </div>
+                                </li>`;
+                    }).join("");
+                    $(".new_rec .new_content").find(".new_list").html(html);
+                }
+            });
+        } else {
+            alert("没有更多了");
+        }
     });
 
     //区块
