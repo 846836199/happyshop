@@ -1,5 +1,30 @@
 $(function () {
     var uid = Cookie.get("uid");
+
+
+//渲染区--------------------------------》
+    $.ajax({
+        type:"GET",
+        cache:false,
+        url:"../api/cart.php",
+        data:{"uid":uid},
+        success:function(data){
+            var res = JSON.parse(data);
+            console.log(res);
+            if(res.code == "0"){
+                var list = res.datalist;
+                //获取全部店铺
+                var storeArr = list.map(function(item){
+                    return item.sname;
+                });
+                //店铺去重
+                $.unique(storeArr);
+
+            }
+        }
+    });
+
+//功能区--------------------------》    
     //已经登录
     if (uid) {
         //隐藏登录注册相关信息
@@ -103,7 +128,10 @@ $(function () {
         if(num == sChecks.size()){
             //全选勾上
             $(".all_check").prop("checked",true);
+        } else {
+            $(".all_check").prop("checked",false);
         }
+        
     }
     //更新总数
     function updateTotal(){
@@ -111,12 +139,14 @@ $(function () {
         var total = 0;
         var num = 0;
         dd.each(function(){
+            $(this).parent().parent().removeClass("list_active");
             if($(this).prop("checked")){
                 num++;
                 var xiaoji = $(this).parent().nextAll(".good_total").text();
                 xiaoji = xiaoji.slice(1);
                 total += xiaoji*1;  
-            }  
+                $(this).parent().parent().addClass("list_active");
+            }
         });
         $(".account .good_num").find("span").html(num);
         $(".account .good_sum").find("span").html("￥"+total.toFixed(2));

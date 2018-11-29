@@ -1197,6 +1197,7 @@ main .limit_buy .limit_content .limit_list > li {
   width: 192px;
   background: #fff;
   margin-top: 20px;
+  cursor: pointer;
 }
 main .limit_buy .limit_content .limit_list > li .limit_img {
   position: relative;
@@ -1429,16 +1430,22 @@ main .activity .act_list li img {
   height: 196px;
   display: block;
 }
+main .block > div {
+  height: 781px;
+}
 main .block .block_content {
   position: relative;
   padding: 0 3px;
   width: 1000px;
   overflow: hidden;
+  height: 600px;
 }
 main .block .block_content .big_img {
   position: absolute;
   top: 20px;
   left: 3px;
+  transition: all 0.2s linear;
+  cursor: pointer;
 }
 main .block .block_content .big_img img {
   display: block;

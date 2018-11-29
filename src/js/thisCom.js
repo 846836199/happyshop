@@ -7,6 +7,51 @@ $(function(){
         1: ["密码可能为字母、数字或符号的组合", "密码不能为空"],
         2: ["请输入验证码", "验证码不能为空", "验证码错误"]
     }
+    // var thisherf = decodeURIComponent(location.search.slice(1));
+    
+    // console.log(thisclid,thisname);
+//渲染区-----------------------------------------------》
+    //头部分类渲染
+    $.ajax({
+        type:"GET",
+        cache:false,
+        url:"../api/class.php",
+        data:{bid:1},
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.code == "0"){
+                // console.log(res);
+                var list = res.datalist;
+                var html = list.map(function(item){
+                    return `<a href="javascript:;" class="clearfix" 
+                data-id="${item.clid}">${item.sclass}<span>&gt;</span></a>`;
+                }).join("");
+                // console.log($(".classfiy").find(".item_con"));
+                $(".classfiy").find(".item_con").eq(0).html(html);
+            }
+        }
+    });
+    $.ajax({
+        type:"GET",
+        cache:false,
+        url:"../api/class.php",
+        data:{bid:2},
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.code == "0"){
+                // console.log(res);
+                var list = res.datalist;
+                var html = list.map(function(item){
+                    return `<a href="javascript:;" class="clearfix" 
+                data-id="${item.clid}">${item.sclass}<span>&gt;</span></a>`;
+                }).join("");
+                // console.log($(".classfiy").find(".item_con"));
+                $(".classfiy").find(".item_con").eq(1).html(html);
+            }
+        }
+    });
+//功能区-------------------------------------------------------》
+
     //已经登录
     if (uid) {
         //隐藏登录注册相关信息
@@ -104,10 +149,20 @@ $(function(){
         $(this).removeClass("li_hover");
     });
     
-    $("#nav .classfiy").find("a").hover(function () {
+    //点击跳转全部商品列表
+    $("#nav .classfiy").find("li").click(function(){
+        window.open("../html/list.html?clid=0&name=全部商品");
+    });
+    $("#nav .classfiy .item_con").on("mouseenter","a",function(){
         $(this).addClass("item_hover");
-    }, function () {
+    });
+    $("#nav .classfiy .item_con").on("mouseleave","a",function(){
         $(this).removeClass("item_hover");
+    });
+    $("#nav .classfiy .item_con").on("click","a",function(){
+        var clid = $(this).attr("data-id");
+        var name = $(this).text().slice(0,-1);
+        window.open("../html/list.html?clid="+clid+"&name="+name);
     });
     
     //侧边栏
@@ -209,9 +264,11 @@ $(function(){
     }, function () {
         $(this).removeClass("cart_bg");
     });
+    console.log(uid);
     $("#sidebar .side_cart").eq(0).click(function () {
         if (uid) {
-            location.href = "cart.html";
+            console.log(uid);
+            location.href = "../html/cart.html?uid="+uid;
         } else {
             location.href = "login.html";
         }
@@ -257,7 +314,7 @@ $(function(){
     });
     $("#sidebar .toTop").eq(0).click(function () {
         var h = window.scrollY;
-        console.log(h);
+        // console.log(h);
         if (h > 20) {
             $("html,body").animate({
                 scrollTop: 0

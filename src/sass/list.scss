@@ -59,6 +59,11 @@
                 background-position: -88px -689px;
             }
         }
+        .default_active{
+            i{
+                background-position: -89px -620px;
+            }
+        }
         .sales{
             i{
                 background-position: -156px -653px;
@@ -67,6 +72,16 @@
         .price {
             i{
                 background-position: -156px -653px;
+            }
+        }
+        .sort_activeUp{
+            i{
+                background-position-x: -219px;
+            }
+        }
+        .sort_activeDown{
+            i{
+                background-position-x: -287px;
             }
         }
         .check {
@@ -92,11 +107,17 @@
         }
         .page{
             margin-right: 26px;
+            .topPages{
+                color: #999999;
+            }
         }
         .prev,.next{
             padding:0 5px;
             a{
                 color: #999999;
+            }
+            a:hover{
+                color: #94193f;
             }
         }
         .next{
@@ -129,12 +150,14 @@
                 font-size: 12px;
                 .good_price{
                     color:#666666;
-                    font-size: 16px;
+                    font-size: 20px;
                     height: 26px;
                     line-height: 26px;
+                    color: #94193f;
                     del{
                         color: #969696;
                         font-size: 12px;
+                        margin-left: 20px;
                     }
                 }
                 .good_name{

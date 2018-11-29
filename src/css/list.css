@@ -61,11 +61,20 @@
 .sort .sort_l .default i {
   background-position: -88px -689px;
 }
+.sort .sort_l .default_active i {
+  background-position: -89px -620px;
+}
 .sort .sort_l .sales i {
   background-position: -156px -653px;
 }
 .sort .sort_l .price i {
   background-position: -156px -653px;
+}
+.sort .sort_l .sort_activeUp i {
+  background-position-x: -219px;
+}
+.sort .sort_l .sort_activeDown i {
+  background-position-x: -287px;
 }
 .sort .sort_l .check {
   color: #94193F;
@@ -88,11 +97,17 @@
 .sort .sort_r .page {
   margin-right: 26px;
 }
+.sort .sort_r .page .topPages {
+  color: #999999;
+}
 .sort .sort_r .prev, .sort .sort_r .next {
   padding: 0 5px;
 }
 .sort .sort_r .prev a, .sort .sort_r .next a {
   color: #999999;
+}
+.sort .sort_r .prev a:hover, .sort .sort_r .next a:hover {
+  color: #94193f;
 }
 .sort .sort_r .next {
   margin-right: 6px;
@@ -121,13 +136,15 @@
 }
 .list_content .list li .good_mess .good_price {
   color: #666666;
-  font-size: 16px;
+  font-size: 20px;
   height: 26px;
   line-height: 26px;
+  color: #94193f;
 }
 .list_content .list li .good_mess .good_price del {
   color: #969696;
   font-size: 12px;
+  margin-left: 20px;
 }
 .list_content .list li .good_mess .good_name {
   color: #434343;

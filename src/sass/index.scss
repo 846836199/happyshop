@@ -1208,7 +1208,6 @@ main {
             padding-bottom: 12px;
             cursor: pointer;
             position: relative;
-
             >a {
               width: 180px;
               display: block;
@@ -1419,6 +1418,7 @@ main {
           width: 192px;
           background: #fff;
           margin-top: 20px;
+          cursor: pointer;
           .limit_img {
             position: relative;
 
@@ -1686,15 +1686,21 @@ main {
     }
   }
   .block{
+    >div{
+      height: 781px;
+    }
     .block_content{
       position: relative;
       padding:0 3px;
       width:1000px;
       overflow: hidden;
+      height: 600px;
       .big_img{
         position: absolute;
         top:20px;
         left: 3px;
+        transition: all 0.2s linear;
+        cursor: pointer;
         img{
           display: block;
           height: 270;

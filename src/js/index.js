@@ -24,6 +24,46 @@ $(function () {
     var newAllNum = 0;
     // console.log(uid);
 //渲染区-------------------------------------------------------------------------------》
+    //头部分类渲染
+    $.ajax({
+        type:"GET",
+        cache:false,
+        url:"api/class.php",
+        data:{bid:1},
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.code == "0"){
+                console.log(res);
+                var list = res.datalist;
+                var html = list.map(function(item){
+                    return `<a href="javascript:;" class="clearfix" 
+                data-id="${item.clid}">${item.sclass}<span>&gt;</span></a>`;
+                }).join("");
+                console.log($(".classfiy").find(".item_con"));
+                $(".classfiy").find(".item_con").eq(0).html(html);
+            }
+        }
+    });
+    $.ajax({
+        type:"GET",
+        cache:false,
+        url:"api/class.php",
+        data:{bid:2},
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.code == "0"){
+                console.log(res);
+                var list = res.datalist;
+                var html = list.map(function(item){
+                    return `<a href="javascript:;" class="clearfix" 
+                data-id="${item.clid}">${item.sclass}<span>&gt;</span></a>`;
+                }).join("");
+                console.log($(".classfiy").find(".item_con"));
+                $(".classfiy").find(".item_con").eq(1).html(html);
+            }
+        }
+    });
+
     //--------广告栏渲染
     //------------广告第一栏
     $.ajax({
@@ -243,6 +283,131 @@ $(function () {
             $(".new_rec .new_content").find(".new_list").html(html);
         }
     });
+
+    //---------个护美妆
+    //-------------分类渲染
+    $.ajax({
+        type:"GET",
+        cache:false,
+        url:"api/class.php",
+        data:{bid:1},
+        success:function(data){
+            var res = JSON.parse(data);
+            // console.log(res);
+            if(res.code == "0"){
+                var list = res.datalist;
+                var html = list.map(function(item){
+                return `<a href="javascript:;" data-id="${item.clid}">${item.sclass}<i></i></a>`;
+                }).join("");
+                var html2 = list.map(function(item){
+                    return `<div class="block_content" data-id="g${item.clid}"></div>`;
+                }).join("");
+                $(".Beauty .port_page").html(`<a href="javascript:;" class="page_hover">热销<i></i></a>${html}`);
+                var con = $(".Beauty .cons").html();
+                $(".Beauty .cons").html(con+html2);
+                $(".Beauty .port_page").find("a").data("key",true);
+            }
+        }
+    });
+    //----------内容渲染
+    function addGood(list){
+        var html = list.map(function(item){
+            var imgstr = item.bigimg.split("-")[0];
+            //截取图片路径
+            imgstr = imgstr.slice(3);
+            return `<li data-id="${item.gid}">
+                        <div class="good_img"><img src="${imgstr}" alt="" /></div>
+                        <div class="good_name">
+                        <p class="good_title">${item.jianjie}</p>
+                        <p class="name">${item.goodname}</p>
+                        </div>
+                        <div class="good_price">
+                        ￥<span>${item.price}</span><del>￥${item.delprice}</del>
+                        </div>
+                    </li>`;
+        }).join("");
+        var h = `<div class="big_img">
+                    <img src="img/block1.jpg" alt="">
+                </div>
+                <ul class="block_good list_style clearfix">${html}</ul>`
+        return h;
+    }
+    $.ajax({
+        type:"GET",
+        cache:false,
+        url:"api/classgood.php",
+        data:{clid:1},
+        success:function(data){
+            var res = JSON.parse(data);
+            // console.log(res);
+            if(res.code == "0"){
+                var list = res.datalist;
+                $(".Beauty").find(".block_content").eq(0).html(addGood(list));
+            }
+        }
+    });
+    //---------食品健康
+    //-------------分类渲染
+    $.ajax({
+        type:"GET",
+        cache:false,
+        url:"api/class.php",
+        data:{bid:2},
+        success:function(data){
+            var res = JSON.parse(data);
+            // console.log(res);
+            if(res.code == "0"){
+                var list = res.datalist;
+                var html = list.map(function(item){
+                return `<a href="javascript:;" data-id="${item.clid}">${item.sclass}<i></i></a>`;
+                }).join("");
+                var html2 = list.map(function(item){
+                    return `<div class="block_content" data-id="g${item.clid}"></div>`;
+                }).join("");
+                $(".food .port_page").html(`<a href="javascript:;" class="page_hover">热销<i></i></a>${html}`);
+                var con = $(".food .cons").html();
+                $(".food .cons").html(con+html2);
+                $(".food .port_page").find("a").data("key",true);
+            }
+        }
+    });
+    //----------内容渲染
+    function addGood(list){
+        var html = list.map(function(item){
+            var imgstr = item.bigimg.split("-")[0];
+            //截取图片路径
+            imgstr = imgstr.slice(3);
+            return `<li data-id="${item.gid}">
+                        <div class="good_img"><img src="${imgstr}" alt="" /></div>
+                        <div class="good_name">
+                        <p class="good_title">${item.jianjie}</p>
+                        <p class="name">${item.goodname}</p>
+                        </div>
+                        <div class="good_price">
+                        ￥<span>${item.price}</span><del>￥${item.delprice}</del>
+                        </div>
+                    </li>`;
+        }).join("");
+        var h = `<div class="big_img">
+                    <img src="img/block1.jpg" alt="">
+                </div>
+                <ul class="block_good list_style clearfix">${html}</ul>`
+        return h;
+    }
+    $.ajax({
+        type:"GET",
+        cache:false,
+        url:"api/classgood.php",
+        data:{clid:7},
+        success:function(data){
+            var res = JSON.parse(data);
+            // console.log(res);
+            if(res.code == "0"){
+                var list = res.datalist;
+                $(".food").find(".block_content").eq(0).html(addGood(list));
+            }
+        }
+    });
 //功能区-------------------------------------------------------------------------------》
         //已经登录
         if (uid) {
@@ -327,18 +492,27 @@ $(function () {
         });
     
         //分类导航
+        //---------点击li跳转到全部商品列表
+        $("#nav .classfiy").find("li").click(function(){
+            window.open("html/list.html?clid=0&name=全部商品");
+        });
         $("#nav .classfiy").find("li").hover(function () {
             $(this).addClass("li_hover");
         }, function () {
             $(this).removeClass("li_hover");
         });
-    
-        $("#nav .classfiy").find("a").hover(function () {
+        //触摸
+        $("#nav .classfiy .item_con").on("mouseenter","a",function(){
             $(this).addClass("item_hover");
-        }, function () {
+        });
+        $("#nav .classfiy .item_con").on("mouseleave","a",function(){
             $(this).removeClass("item_hover");
         });
-    
+        $("#nav .classfiy .item_con").on("click","a",function(){
+            var clid = $(this).attr("data-id");
+            var name = $(this).text().slice(0,-1);
+            window.open("html/list.html?clid="+clid+"&name="+name);
+        });
         //侧边栏
         //-----用户状态
         //---------移入显示
@@ -440,7 +614,7 @@ $(function () {
         });
         $("#sidebar .side_cart").eq(0).click(function () {
             if (uid) {
-                location.href = "cart.html";
+                location.href = "html/cart.html?uid="+uid;
             } else {
                 location.href = "login.html";
             }
@@ -577,20 +751,8 @@ $(function () {
     });
 
     //广告栏轮播
-    // var adW = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(0).find("li").size();
-    // var adW2 = ($(".ad .list").find("li").eq(0).width()+6)*$(".ad .list").eq(1).find("li").size();
-    // //一页的宽度
-    // var lisW = ($(".ad .list").find("li").eq(0).width()+6)*5;
-    // // console.log(lisW);
-    // //设置ul的宽度 left的坐标
-    // $(".ad .list").eq(0).css({
-    //     "width":adW+"px",
-    //     "left":0
-    // });
-    // $(".ad .list").eq(1).css({
-    //     "width":adW2+"px",
-    //     "left":0
-    // });
+    //跳转全部商品的商品列表
+
     //---------点击滚动
 
     $(".ad .ad_content").find(".list").data("num",0);
@@ -625,6 +787,12 @@ $(function () {
             });
         }
     });
+    //-----------------点击商品跳转到详情页
+    $(".ad .ad_content .list").on("click","li",function(){
+        // console.log($(this).attr("data-id"));
+        var gid = $(this).attr("data-id")
+        window.open("html/details.html?gid="+gid);
+    });
     
     //限时抢购轮播
 
@@ -654,6 +822,13 @@ $(function () {
             });
         }
     });
+    //----------------点击商品跳转到详情页
+    $(".limit_buy .limit_content .limit_list").on("click","li",function(){
+        // console.log($(this).attr("data-id"));
+        var gid = $(this).attr("data-id")
+        window.open("html/details.html?gid="+gid);
+    });
+
     //限时抢购 切换
     $(".limit_buy .port_page").find("a").mouseenter(function () { 
         $(".limit_buy .port_page").find("a").removeClass("page_hover");
@@ -720,21 +895,70 @@ $(function () {
             alert("没有更多了");
         }
     });
+    //----------------点击商品跳转到详情页
+    $(".new_rec .new_content .new_list").on("click","li",function(){
+        // console.log($(this).attr("data-id"));
+        var gid = $(this).attr("data-id")
+        window.open("html/details.html?gid="+gid);
+    });
 
     //区块
-    $(".block .block_good").on("mouseenter","li",function(){
+    $(".block .cons").on("mouseenter","li",function(){
         $(this).addClass("list_hover");
+        // console.log($(this));
     });
-    $(".block .block_good").on("mouseleave","li",function(){
+    $(".block .cons").on("mouseleave","li",function(){
         $(this).removeClass("list_hover");
     });
-    $(".Beauty .port_page").find("a").mouseenter(function(){
-        $(".Beauty .port_page").find("a").removeClass("page_hover");
-        $(this).addClass("page_hover");
-        $(".Beauty .block_content").hide();
-        $(".Beauty .block_content").eq($(this).index()).show();
+    $(".block .cons").on("mouseenter",".big_img",function(){
+        $(this).css("opacity",0.8);
     });
+    $(".block .cons").on("mouseleave",".big_img",function(){
+        $(this).css("opacity",1);
+    });
+    // $(".Beauty .port_page").find("a").mouseenter(function(){
+    //     $(".Beauty .port_page").find("a").removeClass("page_hover");
+    //     $(this).addClass("page_hover");
+    //     $(".Beauty .block_content").hide();
+    //     $(".Beauty .block_content").eq($(this).index()).show();
+    // });
 
+    $(".block .port_page").on("mouseenter","a",function(){
+        $(this).parent().find("a").removeClass("page_hover");
+        $(this).addClass("page_hover");
+        var par = $(this).parent().parent().parent();
+        
+        par.find(".block_content").hide();
+        par.find(".block_content").eq($(this).index()).show();
+        if($(this).index()>0 && $(this).data("key")){
+            $(this).data("key",false);
+            // console.log($(this).attr("data-id"));
+            $.ajax({
+                type:"GET",
+                cache:false,
+                url:"api/classgood.php",
+                data:{clid:$(this).attr("data-id")},
+                success:function(data){
+                    var res = JSON.parse(data);
+                    // console.log(res);
+                    if(res.code == "0"){
+                        var list = res.datalist;
+                        par.find(".block_content").eq($(this).index()).html(addGood(list));
+                    }
+                }.bind($(this))
+            });
+        }
+    });
+    $(".block .cons").on("click","li",function(){
+        // console.log($(this).attr("data-id"));
+        var gid = $(this).attr("data-id");
+        if(gid){
+            window.open("html/details.html?gid="+gid);
+        } else {
+            window.open("html/details.html?gid="+71);
+        }
+        
+    });
 
     //头部固定搜索栏显示
     var key1 = false;
