@@ -229,6 +229,7 @@ main .good_content .good_mess .freight {
 main .good_content .good_mess .check {
   display: inline-block;
   vertical-align: middle;
+  width: 460px;
 }
 main .good_content .good_mess .check li {
   float: left;
@@ -240,6 +241,7 @@ main .good_content .good_mess .check li {
   border: 2px solid #C8C8C8;
   margin-right: 5px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 main .good_content .good_mess .check li i {
   position: absolute;
@@ -264,7 +266,7 @@ main .good_content .good_mess .color {
 }
 main .good_content .good_mess .size span,
 main .good_content .good_mess .color span {
-  vertical-align: middle;
+  line-height: 32px;
 }
 main .good_content .good_mess .num {
   padding: 10px 0;

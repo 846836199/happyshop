@@ -427,6 +427,9 @@ main{
                         border-radius: 5px;
                         margin:0 5px;
                     }
+                    input{
+                        margin-right: 5px;
+                    }
                 }
             }
             .list_con{
@@ -473,6 +476,7 @@ main{
                         height: 24px;
                         border:1px solid #E5E5E5;
                         background: #fff;
+                        cursor: pointer;
                     }
                     .sub{
                         border-right: none;
@@ -556,6 +560,26 @@ main{
                     text-align: center;
                 }
             }
+        }
+    }
+    .notip{
+        text-align: center;
+        height: 200px;
+        padding-top:20px;
+        font-size: 40px;
+        border:1px solid #94193f;
+        display: none;
+        a{
+            display: block;
+            width:100px;
+            height: 50px;
+            padding:10px;
+            font-size: 20px;
+            color: #fff;
+            background: #94193f;
+            text-align: center;
+            line-height: 50px;
+            margin:0 auto;
         }
     }
     .like{

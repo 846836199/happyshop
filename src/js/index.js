@@ -24,6 +24,60 @@ $(function () {
     var newAllNum = 0;
     // console.log(uid);
 //渲染区-------------------------------------------------------------------------------》
+    //顶部购物车渲染
+    topcart();
+    function topcart(){
+        if(uid){
+            // console.log(uid);
+            $.ajax({
+                type:"GET",
+                cache:false,
+                url:"api/cart.php",
+                data:{"uid":uid},
+                success:function(data){
+                    var res = JSON.parse(data);
+                    if(res.code == "0"){
+                        $(".cart_list .cartTip").hide();
+                        var list = res.datalist;
+                        // console.log(list.length);
+                        //显示商品数量
+                        $(".cartContent .cart_total").find(".goodn").html(list.length);
+                        $(".head_cart .gou_nums").html(list.length);
+                        $(".sidebar .side_cart").find("span").html(list.length);
+                        var total = 0;
+                        var html = list.map(function(item){
+                            total += item.price*1*item.nums;
+                            //获取第一张大图
+                            var imgstr = item.bigimg.split("-")[0];
+                            //截取图片路径
+                            imgstr = imgstr.slice(3);
+                            return `<li data-id="${item.cid}">
+                                        <img src="${imgstr}" alt="" class="fl goodImg" />
+                                        <a href="javascript:;" class="fl goodName">${item.goodname}</a>
+                                        <p class="fr goodMess">
+                                        ￥<span class="goodp">${(item.price*1).toFixed(2)}</span> × <span class="gn">${item.nums}</span>
+                                        </p>
+                                        <a href="javascript:;" class="del fr">删除</a>
+                                    </li>`;}
+                            ).join("");
+                        $(".cartContent .list").html(html); 
+                        $(".cartContent .goodt").html(total.toFixed(2));
+                        //总价
+                        $(".cart_list .cartContent").show();     
+                    } else {
+                        $(".cart_list .cartContent").hide();
+                        $(".cart_list .cartTip").html("购物车没商品&nbsp;赶快去选购吧");
+                        $(".cart_list .cartTip").show();
+                    }
+                }
+            });
+        } else {
+            $(".cart_list .cartContent").hide();
+            $(".cart_list .cartTip").html(`您还没有登录！<a href="html/login.html">登录</>`);
+            $(".cart_list .cartTip").show();
+        }
+        
+    }
     //头部分类渲染
     $.ajax({
         type:"GET",
@@ -33,13 +87,13 @@ $(function () {
         success:function(data){
             var res = JSON.parse(data);
             if(res.code == "0"){
-                console.log(res);
+                // console.log(res);
                 var list = res.datalist;
                 var html = list.map(function(item){
                     return `<a href="javascript:;" class="clearfix" 
                 data-id="${item.clid}">${item.sclass}<span>&gt;</span></a>`;
                 }).join("");
-                console.log($(".classfiy").find(".item_con"));
+                // console.log($(".classfiy").find(".item_con"));
                 $(".classfiy").find(".item_con").eq(0).html(html);
             }
         }
@@ -52,13 +106,13 @@ $(function () {
         success:function(data){
             var res = JSON.parse(data);
             if(res.code == "0"){
-                console.log(res);
+                // console.log(res);
                 var list = res.datalist;
                 var html = list.map(function(item){
                     return `<a href="javascript:;" class="clearfix" 
                 data-id="${item.clid}">${item.sclass}<span>&gt;</span></a>`;
                 }).join("");
-                console.log($(".classfiy").find(".item_con"));
+                // console.log($(".classfiy").find(".item_con"));
                 $(".classfiy").find(".item_con").eq(1).html(html);
             }
         }
@@ -486,9 +540,33 @@ $(function () {
         $("#header .head_cart").eq(0).hover(function () {
             $(this).addClass("head_cart_hover");
             $(this).find(".cart_list").eq(0).show();
+            topcart();
         }, function () {
             $(this).removeClass("head_cart_hover");
             $(this).find(".cart_list").eq(0).hide();
+        });
+        //点击跳转购物车
+        $(".cartContent .toCart").click(function(){
+            window.open("html/cart.html");
+        });
+        //购物车删除 
+        $(".cartContent .list").on("click",".del",function(){
+            var cid = $(this).parent().attr("data-id");
+            console.log(cid);
+            var tip = confirm("您确定要移除这个商品吗？");
+            if(tip){
+                $.ajax({
+                    type:"GET",
+                    url:"api/newDel.php",
+                    data:{cid:cid},
+                    success:function(data){
+                        var res = JSON.parse(data);
+                        if(res.code == "0"){
+                            topcart();
+                        }
+                    }.bind($(this))
+                });
+            }
         });
     
         //分类导航
@@ -609,6 +687,7 @@ $(function () {
         //-----------购物车功能
         $("#sidebar .side_cart").eq(0).hover(function () {
             $(this).addClass("cart_bg");
+            topcart();
         }, function () {
             $(this).removeClass("cart_bg");
         });
@@ -616,7 +695,7 @@ $(function () {
             if (uid) {
                 location.href = "html/cart.html?uid="+uid;
             } else {
-                location.href = "login.html";
+                location.href = "html/login.html";
             }
         });
     

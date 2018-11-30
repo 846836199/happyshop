@@ -301,6 +301,14 @@
   padding-bottom: 52px;
   display: none;
 }
+#header .head_mid .head_cart .cart_list .cartContent .more {
+  display: block;
+  height: 12px;
+  line-height: 12px;
+  font-size: 12px;
+  text-align: center;
+  display: none;
+}
 #header .head_mid .head_cart .cart_list .cartContent h4 {
   font-size: 12px;
   font-weight: bold;

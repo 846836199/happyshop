@@ -291,7 +291,7 @@ $(function(){
                                     opacity:0
                                 });
                                 faKey = true;
-                                var cartNum =  $(".sidebar .side_cart").find("span").html()*1+thisnums*1;
+                                var cartNum =  $(".sidebar .side_cart").find("span").html()*1+1;
                                 // console.log();
                                 $(".sidebar .side_cart").find("span").html(cartNum);
                             });
@@ -301,6 +301,9 @@ $(function(){
                     }
                 }.bind($(this))
             });
-        } 
+        } else {
+            alert("请先登录！");
+            location.href = "../html/login.html";
+        }
     });
 });

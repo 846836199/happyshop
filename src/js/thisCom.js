@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
     //检测是否登录
     var uid = Cookie.get("uid");
     //登录验证提示
@@ -8,21 +8,78 @@ $(function(){
         2: ["请输入验证码", "验证码不能为空", "验证码错误"]
     }
     // var thisherf = decodeURIComponent(location.search.slice(1));
-    
+
     // console.log(thisclid,thisname);
-//渲染区-----------------------------------------------》
+    //渲染区-----------------------------------------------》
+    topcart();
+
+    function topcart() {
+        if (uid) {
+            // console.log(uid);
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: "../api/cart.php",
+                data: {
+                    "uid": uid
+                },
+                success: function (data) {
+                    var res = JSON.parse(data);
+                    if (res.code == "0") {
+                        $(".cart_list .cartTip").hide();
+                        var list = res.datalist;
+                        // console.log(list.length);
+                        //显示商品数量
+                        $(".cartContent .cart_total").find(".goodn").html(list.length);
+                        $(".head_cart .gou_nums").html(list.length);
+                        $(".sidebar .side_cart").find("span").html(list.length);
+                        var total = 0;
+                        var html = list.map(function (item) {
+                            total += item.price * 1 * item.nums;
+                            //获取第一张大图
+                            var imgstr = item.bigimg.split("-")[0];
+                            //截取图片路径
+                            return `<li data-id="${item.cid}">
+                                    <img src="${imgstr}" alt="" class="fl goodImg" />
+                                    <a href="javascript:;" class="fl goodName">${item.goodname}</a>
+                                    <p class="fr goodMess">
+                                    ￥<span class="goodp">${(item.price*1).toFixed(2)}</span> × <span class="gn">${item.nums}</span>
+                                    </p>
+                                    <a href="javascript:;" class="del fr">删除</a>
+                                </li>`;
+                        }).join("");
+                        $(".cartContent .list").html(html);
+                        $(".cartContent .goodt").html(total.toFixed(2));
+                        //总价
+                        $(".cart_list .cartContent").show();
+                    } else {
+                        $(".cart_list .cartContent").hide();
+                        $(".cart_list .cartTip").html("购物车没商品&nbsp;赶快去选购吧");
+                        $(".cart_list .cartTip").show();
+                    }
+                }
+            });
+        } else {
+            $(".cart_list .cartContent").hide();
+            $(".cart_list .cartTip").html(`您还没有登录！<a href="html/login.html">登录</>`);
+            $(".cart_list .cartTip").show();
+        }
+
+    }
     //头部分类渲染
     $.ajax({
-        type:"GET",
-        cache:false,
-        url:"../api/class.php",
-        data:{bid:1},
-        success:function(data){
+        type: "GET",
+        cache: false,
+        url: "../api/class.php",
+        data: {
+            bid: 1
+        },
+        success: function (data) {
             var res = JSON.parse(data);
-            if(res.code == "0"){
+            if (res.code == "0") {
                 // console.log(res);
                 var list = res.datalist;
-                var html = list.map(function(item){
+                var html = list.map(function (item) {
                     return `<a href="javascript:;" class="clearfix" 
                 data-id="${item.clid}">${item.sclass}<span>&gt;</span></a>`;
                 }).join("");
@@ -32,16 +89,18 @@ $(function(){
         }
     });
     $.ajax({
-        type:"GET",
-        cache:false,
-        url:"../api/class.php",
-        data:{bid:2},
-        success:function(data){
+        type: "GET",
+        cache: false,
+        url: "../api/class.php",
+        data: {
+            bid: 2
+        },
+        success: function (data) {
             var res = JSON.parse(data);
-            if(res.code == "0"){
+            if (res.code == "0") {
                 // console.log(res);
                 var list = res.datalist;
-                var html = list.map(function(item){
+                var html = list.map(function (item) {
                     return `<a href="javascript:;" class="clearfix" 
                 data-id="${item.clid}">${item.sclass}<span>&gt;</span></a>`;
                 }).join("");
@@ -50,7 +109,7 @@ $(function(){
             }
         }
     });
-//功能区-------------------------------------------------------》
+    //功能区-------------------------------------------------------》
 
     //已经登录
     if (uid) {
@@ -79,7 +138,7 @@ $(function(){
                 var day = new Date();
                 day.setDate(day.getDate() - 1);
                 document.cookie = "uid=out;expires=" + day.toUTCString() + ";path=/";
-                location.href = "index1.html";
+                location.href = "../index1.html";
             }
         }
     });
@@ -87,7 +146,7 @@ $(function(){
     $("#header .loginStatus .reg_tip").find("i").eq(0).click(function () {
         $(this).parent().hide();
     });
-    
+
     //下载快乐购App二维码显示
     $("#header .downApp").hover(function () {
         $(this).find("div").eq(0).show();
@@ -103,7 +162,7 @@ $(function(){
         $(this).removeClass("ser_active");
         $(this).find(".ser_content").eq(0).hide();
     });
-    
+
     //搜索框监听内容更改显示搜索提示
     $("#header .search").bind('input propertychange', function () {
         // console.log($(this));
@@ -123,20 +182,46 @@ $(function(){
     }, function () {
         $(this).removeClass("sea_hover");
     });
-    
+
     //头部购物车显示
     $("#header .head_cart").eq(0).hover(function () {
         $(this).addClass("head_cart_hover");
         $(this).find(".cart_list").eq(0).show();
+        topcart();
     }, function () {
         $(this).removeClass("head_cart_hover");
         $(this).find(".cart_list").eq(0).hide();
     });
+    //点击跳转购物车
+    $(".cartContent .toCart").click(function(){
+        window.open("../html/cart.html");
+    });
+    //购物车删除 
+    $(".cartContent .list").on("click", ".del", function () {
+        var cid = $(this).parent().attr("data-id");
+        console.log(cid);
+        var tip = confirm("您确定要移除这个商品吗？");
+        if (tip) {
+            $.ajax({
+                type: "GET",
+                url: "../api/newDel.php",
+                data: {
+                    cid: cid
+                },
+                success: function (data) {
+                    var res = JSON.parse(data);
+                    if (res.code == "0") {
+                        topcart();
+                    }
+                }.bind($(this))
+            });
+        }
+    });
 
     //分类导航
     var navkey = true;
-    $("#nav .nav_btn").find("a").eq(0).click(function(){
-        if(navkey){
+    $("#nav .nav_btn").find("a").eq(0).click(function () {
+        if (navkey) {
             $("#nav .classfiy").eq(0).slideDown();
         } else {
             $("#nav .classfiy").eq(0).slideUp();
@@ -148,23 +233,23 @@ $(function(){
     }, function () {
         $(this).removeClass("li_hover");
     });
-    
+
     //点击跳转全部商品列表
-    $("#nav .classfiy").find("li").click(function(){
+    $("#nav .classfiy").find("li").click(function () {
         window.open("../html/list.html?clid=0&name=全部商品");
     });
-    $("#nav .classfiy .item_con").on("mouseenter","a",function(){
+    $("#nav .classfiy .item_con").on("mouseenter", "a", function () {
         $(this).addClass("item_hover");
     });
-    $("#nav .classfiy .item_con").on("mouseleave","a",function(){
+    $("#nav .classfiy .item_con").on("mouseleave", "a", function () {
         $(this).removeClass("item_hover");
     });
-    $("#nav .classfiy .item_con").on("click","a",function(){
+    $("#nav .classfiy .item_con").on("click", "a", function () {
         var clid = $(this).attr("data-id");
-        var name = $(this).text().slice(0,-1);
-        window.open("../html/list.html?clid="+clid+"&name="+name);
+        var name = $(this).text().slice(0, -1);
+        window.open("../html/list.html?clid=" + clid + "&name=" + name);
     });
-    
+
     //侧边栏
     //-----用户状态
     //---------移入显示
@@ -175,7 +260,7 @@ $(function(){
         $(this).removeClass("cart_bg");
         $(this).find(".side_login").eq(0).hide();
     });
-    
+
     //-------------登录
     $("#sidebar .unlogin .input").find("input").focus(function () {
         //获取焦点时去除红框
@@ -191,7 +276,7 @@ $(function(){
     $("#sidebar .checkCode").find(".change").eq(0).click(function () {
         $(this).prev().html(randomNL(4));
     });
-    
+
     $("#sidebar .unlogin").find(".btn").eq(0).click(function () {
         // console.log(1);
         //更换验证码
@@ -261,6 +346,7 @@ $(function(){
     //-----------购物车功能
     $("#sidebar .side_cart").eq(0).hover(function () {
         $(this).addClass("cart_bg");
+        topcart();
     }, function () {
         $(this).removeClass("cart_bg");
     });
@@ -268,12 +354,12 @@ $(function(){
     $("#sidebar .side_cart").eq(0).click(function () {
         if (uid) {
             console.log(uid);
-            location.href = "../html/cart.html?uid="+uid;
+            location.href = "../html/cart.html?uid=" + uid;
         } else {
             location.href = "login.html";
         }
     });
-    
+
     //------------收藏
     $("#sidebar .collect").eq(0).hover(function () {
         $(this).addClass("cart_bg");
@@ -318,15 +404,15 @@ $(function(){
         if (h > 20) {
             $("html,body").animate({
                 scrollTop: 0
-            },"slow");
+            }, "slow");
         }
     });
-    $(document).on("scroll",function(){
+    $(document).on("scroll", function () {
         var t = $(document).scrollTop();
-        if(t>200){
-            $("#sidebar .side_bottom").find(".toTop").eq(0).css("opacity",1);
+        if (t > 200) {
+            $("#sidebar .side_bottom").find(".toTop").eq(0).css("opacity", 1);
         } else {
-            $("#sidebar .side_bottom").find(".toTop").eq(0).css("opacity",0.6);
+            $("#sidebar .side_bottom").find(".toTop").eq(0).css("opacity", 0.6);
         }
     });
 });

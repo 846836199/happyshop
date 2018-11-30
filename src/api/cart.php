@@ -2,7 +2,7 @@
     include "connect.php";
 
     //获取数据
-    $uid = isset($_GET['uid']) ? $_GET['uid'] : "";
+    $uid = isset($_GET['uid']) ? $_GET['uid'] : "2";
 
     //sql语句
     //获取用户购物车数据
@@ -16,7 +16,7 @@
         if($res-> num_rows > 0) {
         //获取结果内容
             $arr = $res -> fetch_all(MYSQLI_ASSOC);
-            // var_dump($arr[0]["gid"]);
+            // var_dump($arr);
             // 获取结果集内的gid的商品信息
             $arr2 = array();
             for($i=0;$i<count($arr);$i++){
@@ -36,6 +36,7 @@
                 $all["nums"] = $arr[$i]["nums"];
                 // var_dump($all);
                 //将所有商品信息插入arr2内
+                $all["cid"] = $arr[$i]["cid"];
                 $arr2[] = $all;
             }
             // var_dump($arr2);
@@ -45,6 +46,9 @@
                 "datalist" => $arr2,
                 "message" => "加载完成"
             );
+            //关闭连接
+            $res2 -> close();
+            $res -> close();
         }
         else {
             $goodlist = array(
@@ -53,9 +57,7 @@
             );
         }
 
-        //关闭连接
-        $res2 -> close();
-        $res -> close();
+        
     }
     else {
         $goodlist = array(

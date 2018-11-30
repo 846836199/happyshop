@@ -168,6 +168,8 @@ $(function () {
 
         if ($(this).hasClass("sales")) {
             type = "xiaoliang";
+        } else {
+            type = "price";
         }
         if ($(this).data("key")) {
             order = "asc";

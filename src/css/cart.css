@@ -375,6 +375,9 @@ main .cart_list .list_part .list_title .tit_l span {
   border-radius: 5px;
   margin: 0 5px;
 }
+main .cart_list .list_part .list_title .tit_l input {
+  margin-right: 5px;
+}
 main .cart_list .list_part .list_con {
   font-size: 12px;
   padding: 20px 0;
@@ -419,6 +422,7 @@ main .cart_list .list_part .list_con .good_num .add, main .cart_list .list_part 
   height: 24px;
   border: 1px solid #E5E5E5;
   background: #fff;
+  cursor: pointer;
 }
 main .cart_list .list_part .list_con .good_num .sub {
   border-right: none;
@@ -495,6 +499,26 @@ main .account .ac_r .buy_btn a {
   font-size: 20px;
   color: #fff;
   text-align: center;
+}
+main .notip {
+  text-align: center;
+  height: 200px;
+  padding-top: 20px;
+  font-size: 40px;
+  border: 1px solid #94193f;
+  display: none;
+}
+main .notip a {
+  display: block;
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  font-size: 20px;
+  color: #fff;
+  background: #94193f;
+  text-align: center;
+  line-height: 50px;
+  margin: 0 auto;
 }
 main .like .like_head {
   font-size: 12px;

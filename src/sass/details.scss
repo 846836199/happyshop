@@ -262,7 +262,7 @@ main {
             .check {
                 display: inline-block;
                 vertical-align: middle;
-
+                width: 460px;
                 li {
                     float: left;
                     padding: 0 15px;
@@ -273,6 +273,7 @@ main {
                     border: 2px solid #C8C8C8;
                     margin-right: 5px;
                     cursor: pointer;
+                    margin-bottom: 10px;
                     i {
                         position: absolute;
                         right: 0;
@@ -297,7 +298,8 @@ main {
                 padding: 10px 0;
 
                 span {
-                    vertical-align: middle;
+                    // vertical-align: middle;
+                    line-height: 32px;
                 }
             }
 

@@ -10,20 +10,73 @@ $(function () {
         data:{"uid":uid},
         success:function(data){
             var res = JSON.parse(data);
-            console.log(res);
+            // console.log(res);
             if(res.code == "0"){
                 var list = res.datalist;
+                console.log(list);
                 //获取全部店铺
                 var storeArr = list.map(function(item){
                     return item.sname;
                 });
                 //店铺去重
                 $.unique(storeArr);
-
+                var listhtml = "";
+                storeArr.forEach(function(item){
+                    var cartMes = "";
+                    var zispan = ""; 
+                    if(item == "快乐购官方"){
+                        zispan = "<span>自营</span>";
+                    }
+                    cartMes = `<dl class="list_part">
+                                <dt class="clearfix list_title">
+                                    <div class="tit_l fl">
+                                        <input type="checkbox" class="sCheck">${zispan}${item}
+                                    </div>
+                                    <div class="tit_r fr">
+                                        <span>在线支付满129.00包邮</span>
+                                    </div>
+                                </dt>`;
+                    for(var i=0;i<list.length;i++){
+                        if(list[i].sname == item){
+                            var imgstr = list[i].smallimg.split("-")[0];
+                            var price = (list[i].price*1).toFixed(2);
+                            cartMes += `<dd class="list_con clearfix" data-id="${list[i].cid}">
+                                            <div class="good_check fl">
+                                                <input type="checkbox">
+                                            </div>
+                                            <div class="good_img">
+                                                <img src="${imgstr}" alt="">
+                                            </div>
+                                            <div class="good_name"><a href="javascript:;">${list[i].goodname}</a></div>
+                                            <div class="good_price">￥<span>${price}</span></div>
+                                            <div class="good_num" data-id="${list[i].kucun}">
+                                                <input type="button" class="sub" value="-">
+                                                <input type="text" class="put" value="${list[i].nums}" data-num="${list[i].nums}">
+                                                <input type="button" class="add" value="+">
+                                            </div>
+                                            <div class="good_total">￥<span>${(list[i].price*list[i].nums).toFixed(2)}</span></div>
+                                            <div class="remove">
+                                                <input type="button" class="del" value="删除">
+                                            </div>
+                                        </dd>`
+                        }
+                    }
+                    cartMes += "</dl>";
+                    listhtml += cartMes;
+                });
+                $(".cart_list").html(listhtml);
+            } else {
+                console.log(1);
+                updatacart();
             }
         }
     });
-
+    function updatacart(){
+        $(".list_head").hide();
+        $(".cartlist").hide();
+        $(".account").hide();
+        $(".notip").show();
+    }
 //功能区--------------------------》    
     //已经登录
     if (uid) {
@@ -151,4 +204,111 @@ $(function () {
         $(".account .good_num").find("span").html(num);
         $(".account .good_sum").find("span").html("￥"+total.toFixed(2));
     }
+    //小计
+    function xiaoji(obj){
+        var price = obj.parent().parent().find(".good_price span").html()*1;
+        var num = obj.parent().find(".put").val()*1;
+        var total = (price*num).toFixed(2);
+        obj.parent().parent().find(".good_total span").html(total);
+        // console.log(price);
+    }
+    //数量加减
+    $(".cart_list").on("click",".sub",function(){
+        var tclid = $(this).parent().parent().attr("data-id");
+        // console.log(tclid);
+        $.ajax({
+            type:"GET",
+            url:"../api/addSub.php",
+            cache:false,
+            data:{cid:tclid,type:"sub"},
+            success:function(data){
+                var res = JSON.parse(data);
+                // console.log(res);
+                if(res.code == "0"){
+                    $(this).parent().find(".put").val(res.nums);
+                    $(this).parent().find(".put").attr("data-num",res.nums);
+                    xiaoji($(this));
+                    updateTotal();
+                }
+            }.bind($(this))
+        });
+    });
+
+    $(".cart_list").on("click",".add",function(){
+        var tclid = $(this).parent().parent().attr("data-id");
+        // console.log(tclid);
+        $.ajax({
+            type:"GET",
+            url:"../api/addSub.php",
+            cache:false,
+            data:{cid:tclid,type:"add"},
+            success:function(data){
+                var res = JSON.parse(data);
+                // console.log(res);
+                if(res.code == "0"){
+                    $(this).parent().find(".put").val(res.nums);
+                    $(this).parent().find(".put").attr("data-num",res.nums);
+                    xiaoji($(this));
+                    updateTotal();
+                }
+            }.bind($(this))
+        });
+    });
+    
+    $(".cart_list").on("change",".put",function(){
+        var tclid = $(this).parent().parent().attr("data-id");
+        // console.log(tclid);
+        var thisval = $(this).val()*1;
+        var thisnum = $(this).attr("data-num");
+        if(!isNaN(thisval)){
+            $.ajax({
+                type:"GET",
+                url:"../api/addSub.php",
+                cache:false,
+                data:{cid:tclid,type:thisval},
+                success:function(data){
+                    var res = JSON.parse(data);
+                    // console.log(res);
+                    if(res.code == "0"){
+                        $(this).val(res.nums);
+                        $(this).attr("data-num",res.nums);
+                        xiaoji($(this));
+                        updateTotal();
+                    }
+                }.bind($(this))
+            });
+        } else {
+            alert("只能输入数字");
+            $(this).val(thisnum);
+        }
+    });
+
+    //删除
+    $(".cart_list").on("click",".del",function(){
+        var thiscid = $(this).parent().parent().attr("data-id");
+        console.log(thiscid);
+        var index = $(this).parent().parent().index();
+        // console.log($(this).parent().parent().parent().children().eq(index).attr("data-id"));
+        var tip = confirm("您确定要移除这个商品吗？");
+        if(tip){
+            $.ajax({
+                type:"GET",
+                url:"../api/newDel.php",
+                data:{cid:thiscid},
+                success:function(data){
+                    var res = JSON.parse(data);
+                    if(res.code == "0"){
+                        var par = $(this).parent().parent().parent();
+                        par.children().eq(index).remove();
+                        if(par.children().size() == 1) {
+                            par.remove();
+                        }
+                    }
+                    if(par.parent().children().size() == 0){
+                        updatacart();
+                    }
+                }.bind($(this))
+            });
+        }
+    });
 });
