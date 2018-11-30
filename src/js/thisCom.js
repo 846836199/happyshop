@@ -350,7 +350,7 @@ $(function () {
     }, function () {
         $(this).removeClass("cart_bg");
     });
-    console.log(uid);
+    // console.log(uid);
     $("#sidebar .side_cart").eq(0).click(function () {
         if (uid) {
             console.log(uid);

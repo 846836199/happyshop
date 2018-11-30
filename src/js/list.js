@@ -187,7 +187,7 @@ $(function () {
                 "order": order
             },
             success: function (data) {
-                console.log($(this).data("key"));
+                // console.log($(this).data("key"));
                 $(".sort_l .default").data("key",true);
                 $(this).data("key", !$(this).data("key"));
                 var res = JSON.parse(data);

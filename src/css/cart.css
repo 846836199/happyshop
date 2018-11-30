@@ -38,7 +38,7 @@
   line-height: 36px;
   color: #fff;
   width: 191px;
-  background: url(../img/add_r_tips.png) no-repeat 0 0;
+  background: url(../css/img/add_r_tips.png) no-repeat 0 0;
 }
 .head_top .loginStatus p i {
   position: absolute;
@@ -48,7 +48,7 @@
   height: 8px;
   display: block;
   cursor: pointer;
-  background: url(../img/add_r_tips.png) no-repeat -201px -41px;
+  background: url(../css/img/add_r_tips.png) no-repeat -201px -41px;
 }
 .head_top .top_r > li {
   float: left;
@@ -76,7 +76,7 @@
   width: 14px;
   vertical-align: middle;
   height: 13px;
-  background: url(../img/icon_list.png) no-repeat 0 -38px;
+  background: url(../css/img/icon_list.png) no-repeat 0 -38px;
 }
 .head_top .top_r > li:last-child a span {
   border-right: none;
@@ -122,7 +122,7 @@
   height: 4px;
   margin-left: 2px;
   vertical-align: middle;
-  background: url(../img/icon_list.png) no-repeat -192px -768px;
+  background: url(../css/img/icon_list.png) no-repeat -192px -768px;
 }
 .head_top .top_r .service .ser_content {
   width: 100%;
@@ -186,7 +186,7 @@
   line-height: 36px;
   color: #fff;
   width: 191px;
-  background: url(../img/add_r_tips.png) no-repeat 0 0;
+  background: url(../css/img/add_r_tips.png) no-repeat 0 0;
 }
 #header .head_top .loginStatus p i {
   position: absolute;
@@ -196,7 +196,7 @@
   height: 8px;
   display: block;
   cursor: pointer;
-  background: url(../img/add_r_tips.png) no-repeat -201px -41px;
+  background: url(../css/img/add_r_tips.png) no-repeat -201px -41px;
 }
 #header .head_top .top_r > li {
   float: left;
@@ -224,7 +224,7 @@
   width: 14px;
   vertical-align: middle;
   height: 13px;
-  background: url(../img/icon_list.png) no-repeat 0 -38px;
+  background: url(../css/img/icon_list.png) no-repeat 0 -38px;
 }
 #header .head_top .top_r > li:last-child a span {
   border-right: none;
@@ -270,7 +270,7 @@
   height: 4px;
   margin-left: 2px;
   vertical-align: middle;
-  background: url(../img/icon_list.png) no-repeat -192px -768px;
+  background: url(../css/img/icon_list.png) no-repeat -192px -768px;
 }
 #header .head_top .top_r .service .ser_content {
   width: 100%;
@@ -302,7 +302,7 @@
   display: inline-block;
   width: 72px;
   height: 68px;
-  background: url("../img/logo4.jpg") no-repeat;
+  background: url("../css/img/logo4.jpg") no-repeat;
   vertical-align: middle;
   background-size: 72px 68px;
 }
@@ -316,7 +316,7 @@
   margin-top: 60px;
   width: 415px;
   height: 42px;
-  background: url("../img/order_icon_list.png") no-repeat 0 0;
+  background: url("../css/img/order_icon_list.png") no-repeat 0 0;
 }
 
 main {

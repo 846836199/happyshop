@@ -95,6 +95,7 @@ $(function () {
                 }).join("");
                 // console.log($(".classfiy").find(".item_con"));
                 $(".classfiy").find(".item_con").eq(0).html(html);
+                bannerResize();
             }
         }
     });
@@ -758,7 +759,7 @@ $(function () {
     }
     //窗口改变 图片位置跟着变
     $(window).resize(function () { 
-        // bannerResize();
+        bannerResize();
     });
     //页码居中
     var pageW = $("#banner .pages").eq(0).width();

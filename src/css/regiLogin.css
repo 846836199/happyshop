@@ -7,7 +7,7 @@
       display: block;
       height: 68px;
       width: 72px;
-      background: url(../img/logo.png) no-repeat; }
+      background: url(../css/img/logo.png) no-repeat; }
   .header .head_r {
     margin-top: 20px;
     display: block; }
@@ -35,7 +35,7 @@
       height: 16px;
       vertical-align: middle;
       margin-right: 2px;
-      background: url(../img/login_icon_list.png) no-repeat 0 0; }
+      background: url(../css/img/login_icon_list.png) no-repeat 0 0; }
 
 .messNum input {
   display: inline-block;
@@ -80,11 +80,11 @@
   vertical-align: middle;
   margin-right: 16px; }
 .otherWay .wayQQ {
-  background: url(../img/login_icon_list.png) no-repeat 0px -32px; }
+  background: url(../css/img/login_icon_list.png) no-repeat 0px -32px; }
 .otherWay .wayWei {
-  background: url(../img/login_icon_list.png) no-repeat -72px -32px; }
+  background: url(../css/img/login_icon_list.png) no-repeat -72px -32px; }
 .otherWay .wayZhi {
-  background: url(../img/login_icon_list.png) no-repeat -143px -32px; }
+  background: url(../css/img/login_icon_list.png) no-repeat -143px -32px; }
 
 .checkCode input {
   display: inline-block;
@@ -113,7 +113,7 @@
   width: 301px;
   padding: 0 33px 54px;
   margin-right: 26px;
-  background: url(../img/login_icon_list.png) no-repeat 0px -119px; }
+  background: url(../css/img/login_icon_list.png) no-repeat 0px -119px; }
   #register .reg_head {
     padding: 30px 0px; }
     #register .reg_head h3 {
@@ -134,7 +134,7 @@
 #login {
   width: 318px;
   padding: 0 24px 54px;
-  background: url(../img/login_icon_list.png) no-repeat 0px -119px; }
+  background: url(../css/img/login_icon_list.png) no-repeat 0px -119px; }
   #login .login_head {
     padding: 30px 0px; }
     #login .login_head h3 {

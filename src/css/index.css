@@ -36,7 +36,7 @@
   line-height: 36px;
   color: #fff;
   width: 191px;
-  background: url(../img/add_r_tips.png) no-repeat 0 0;
+  background: url(../css/img/add_r_tips.png) no-repeat 0 0;
 }
 #header .head_top .loginStatus p i {
   position: absolute;
@@ -46,7 +46,7 @@
   height: 8px;
   display: block;
   cursor: pointer;
-  background: url(../img/add_r_tips.png) no-repeat -201px -41px;
+  background: url(../css/img/add_r_tips.png) no-repeat -201px -41px;
 }
 #header .head_top .top_r > li {
   float: left;
@@ -74,7 +74,7 @@
   width: 14px;
   vertical-align: middle;
   height: 13px;
-  background: url(../img/icon_list.png) no-repeat 0 -38px;
+  background: url(../css/img/icon_list.png) no-repeat 0 -38px;
 }
 #header .head_top .top_r > li:last-child a span {
   border-right: none;
@@ -120,7 +120,7 @@
   height: 4px;
   margin-left: 2px;
   vertical-align: middle;
-  background: url(../img/icon_list.png) no-repeat -192px -768px;
+  background: url(../css/img/icon_list.png) no-repeat -192px -768px;
 }
 #header .head_top .top_r .service .ser_content {
   width: 100%;
@@ -154,7 +154,7 @@
   display: inline-block;
   width: 58px;
   height: 55px;
-  background: url("../img/logo.jpg") no-repeat;
+  background: url("../css/img/logo.png") no-repeat;
   vertical-align: middle;
   background-size: 58px 55px;
 }
@@ -251,13 +251,13 @@
   height: 13px;
   margin-right: 4px;
   margin-bottom: -1px;
-  background: url("../img/icon_list.png") no-repeat -185px -736px;
+  background: url("../css/img/icon_list.png") no-repeat -185px -736px;
 }
 #header .head_mid .head_cart a .gou_jian {
   display: inline-block;
   width: 6px;
   height: 9px;
-  background: url("../img/icon_list.png") no-repeat -269px -737px;
+  background: url("../css/img/icon_list.png") no-repeat -269px -737px;
 }
 #header .head_mid .head_cart a .gou_nums {
   position: absolute;
@@ -398,7 +398,7 @@
   height: 8px;
   top: 19px;
   right: 17px;
-  background: url(../img/icon_list.png) no-repeat -36px -128px;
+  background: url(../css/img/icon_list.png) no-repeat -36px -128px;
 }
 #nav .nav_l .classfiy {
   border-top: 2px solid #94193f;
@@ -408,7 +408,7 @@
   width: 100%;
   height: 375px;
   padding-top: 5px;
-  background: url("../img/index_type_bg.png");
+  background: url("../css/img/index_type_bg.png");
 }
 #nav .nav_l .classfiy li {
   height: 35px;
@@ -427,7 +427,7 @@
   vertical-align: middle;
   margin-right: 10px;
   margin-bottom: 2px;
-  background: url("../img/type_icon.png") no-repeat 0 -421px;
+  background: url("../css/img/type_icon.png") no-repeat 0 -421px;
 }
 #nav .nav_l .classfiy li > a .typeof2 {
   background-position: 0 -166px;
@@ -543,7 +543,7 @@
   position: relative;
 }
 #sidebar .sidebar .side_top .user > i {
-  background: url("../img/icon_list.png") no-repeat -202px -413px;
+  background: url("../css/img/icon_list.png") no-repeat -202px -413px;
 }
 #sidebar .sidebar .side_top .user .side_login {
   position: absolute;
@@ -562,7 +562,7 @@
   display: block;
   height: 12px;
   width: 12px;
-  background: url(../img/icon_list.png) no-repeat 0 -686px;
+  background: url(../css/img/icon_list.png) no-repeat 0 -686px;
 }
 #sidebar .sidebar .side_top .user .side_login .unlogin h4 {
   margin-left: 20px;
@@ -597,7 +597,7 @@
   height: 16px;
   vertical-align: middle;
   margin-right: 2px;
-  background: url(../img/login_icon_list.png) no-repeat 0 0;
+  background: url(../css/img/login_icon_list.png) no-repeat 0 0;
 }
 #sidebar .sidebar .side_top .user .side_login .unlogin .checkCode input {
   display: inline-block;
@@ -691,7 +691,7 @@
   height: 24px;
   margin: 0 auto;
   margin-bottom: 10px;
-  background: url("../img/icon_list1.png") no-repeat 1px 0;
+  background: url("../css/img/icon_list1.png") no-repeat 1px 0;
 }
 #sidebar .sidebar .side_top .user .side_login .islogin .userFunc > div a {
   color: #999999;
@@ -741,7 +741,7 @@
   height: 20px;
   margin-left: 10px;
   margin-bottom: 10px;
-  background: url("../img/icon_list.png") no-repeat -85px 0;
+  background: url("../css/img/icon_list.png") no-repeat -85px 0;
 }
 #sidebar .sidebar .side_top .side_cart a {
   display: block;
@@ -767,7 +767,7 @@
   width: 21px;
   height: 21px;
   margin-left: 10px;
-  background: url("../img/icon_list.png") no-repeat -83px -188px;
+  background: url("../css/img/icon_list.png") no-repeat -83px -188px;
 }
 #sidebar .sidebar .side_bottom {
   position: absolute;
@@ -786,7 +786,7 @@
   display: inline-block;
   width: 18px;
   height: 18px;
-  background: url("../img/icon_list.png") no-repeat -171px -2px;
+  background: url("../css/img/icon_list.png") no-repeat -171px -2px;
 }
 #sidebar .sidebar .side_bottom .QR .QRimg {
   display: none;
@@ -813,7 +813,7 @@
   display: inline-block;
   width: 20px;
   height: 24px;
-  background: url("../img/icon_list.png") no-repeat -171px -59px;
+  background: url("../css/img/icon_list.png") no-repeat -171px -59px;
 }
 #sidebar .sidebar .side_bottom .side_service .ser_content {
   display: none;
@@ -869,7 +869,7 @@
   display: block;
   margin: 0px auto;
   margin-bottom: 10px;
-  background: url("../img/icon_list.png") no-repeat -85px -253px;
+  background: url("../css/img/icon_list.png") no-repeat -85px -253px;
 }
 #sidebar .sidebar .side_bottom .toTop a {
   color: #fff;
@@ -889,6 +889,8 @@
   z-index: 1;
   overflow: hidden;
   height: 380px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 #banner .banner_img li {
   z-index: 0;
@@ -950,7 +952,7 @@ main .ad .ad_part li {
   margin-right: 46px;
   height: 55px;
   line-height: 55px;
-  background: url("../img/border.png") no-repeat right center;
+  background: url("../css/img/border.png") no-repeat right center;
 }
 main .ad .ad_part li a {
   display: block;
@@ -984,7 +986,7 @@ main .ad .ad_part .program a i {
   height: 18px;
   width: 15px;
   margin-bottom: -2px;
-  background: url("../img/icon_list.png") no-repeat -184px -492px;
+  background: url("../css/img/icon_list.png") no-repeat -184px -492px;
 }
 main .ad .ad_content {
   padding: 16px 0 0 4px;
@@ -1097,7 +1099,7 @@ main .ad .ad_content .ad_list .list li .wait i {
   display: inline-block;
   width: 17px;
   height: 17px;
-  background: url("../img/icon_list.png") no-repeat -173px -310px;
+  background: url("../css/img/icon_list.png") no-repeat -173px -310px;
 }
 main .ad .ad_content .ad_list .list li .now {
   display: none;
@@ -1251,7 +1253,7 @@ main .limit_buy .limit_content .limit_list > li .limit_time i {
   display: inline-block;
   width: 13px;
   height: 15px;
-  background: url("../img/icon_list.png") no-repeat -167px -271px;
+  background: url("../css/img/icon_list.png") no-repeat -167px -271px;
 }
 main .limit_buy .limit_content .limit_list > li .limit_name {
   padding: 8px 12px;
@@ -1383,7 +1385,7 @@ main .new_rec .new_head .change i {
   height: 19px;
   vertical-align: middle;
   margin-left: 20px;
-  background: url("../img/icon_list.png") no-repeat -42px -2px;
+  background: url("../css/img/icon_list.png") no-repeat -42px -2px;
 }
 main .new_rec .new_content {
   padding: 0 3px;
@@ -1489,7 +1491,7 @@ main .block .block_brand a {
   padding: 0 11px 0 10px;
   vertical-align: middle;
   line-height: 0;
-  background: url("../img/border2.png") no-repeat right center;
+  background: url("../css/img/border2.png") no-repeat right center;
 }
 main .block .block_brand a img {
   width: 80px;
@@ -1572,7 +1574,7 @@ main .block .block_brand a:last-child {
   width: 18px;
   height: 15px;
   margin-right: 4px;
-  background: url("../img/type_icon.png") no-repeat 0 0;
+  background: url("../css/img/type_icon.png") no-repeat 0 0;
 }
 .rolling .left_top li .left_active {
   background: #C4193F;

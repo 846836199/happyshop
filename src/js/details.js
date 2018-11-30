@@ -37,7 +37,7 @@ $(function(){
         data:{gid:thisgid},
         success:function(data){
             var res = JSON.parse(data);
-            console.log(res);
+            // console.log(res);
             var list = res.datalist;
             $(".head_link .topname").html(list.goodname);
             imgbigArr = list.bigimg.split("-");

@@ -1,6 +1,6 @@
 $(function () {
     var uid = Cookie.get("uid");
-
+    $(".buy_btn a").css("background","#ccc");
 
 //渲染区--------------------------------》
     $.ajax({
@@ -13,7 +13,7 @@ $(function () {
             // console.log(res);
             if(res.code == "0"){
                 var list = res.datalist;
-                console.log(list);
+                // console.log(list);
                 //获取全部店铺
                 var storeArr = list.map(function(item){
                     return item.sname;
@@ -66,7 +66,7 @@ $(function () {
                 });
                 $(".cart_list").html(listhtml);
             } else {
-                console.log(1);
+                // console.log(1);
                 updatacart();
             }
         }
@@ -203,6 +203,12 @@ $(function () {
         });
         $(".account .good_num").find("span").html(num);
         $(".account .good_sum").find("span").html("￥"+total.toFixed(2));
+        if(total==0){
+            $(".buy_btn a").css("background","#ccc");
+        } else {
+            // C41F3A
+            $(".buy_btn a").css("background","#C41F3A");
+        }
     }
     //小计
     function xiaoji(obj){
@@ -304,7 +310,8 @@ $(function () {
                             par.remove();
                         }
                     }
-                    if(par.parent().children().size() == 0){
+                    if($(".cart_list").children().length == 0){
+                        // console.log($("cart_list").children().length);
                         updatacart();
                     }
                 }.bind($(this))
