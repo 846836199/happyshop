@@ -99,7 +99,7 @@ $(function () {
                 var day = new Date();
                 day.setDate(day.getDate() - 1);
                 document.cookie = "uid=out;expires=" + day.toUTCString() + ";path=/";
-                location.href = "index1.html";
+                location.href = "index.html";
             }
         }
     });

@@ -1,0 +1,252 @@
+@charset "utf-8";
+
+.header {
+    padding-top: 30px;
+    padding-bottom: 20px;
+
+    h1 {
+        text-indent: -9999em;
+
+        a {
+            display: block;
+            height: 68px;
+            width: 72px;
+            background: url(../css/img/logo.png) no-repeat;
+        }
+    }
+
+    .head_r {
+        margin-top: 20px;
+        display: block;
+    }
+}
+
+/*main----------->*/
+
+.input {
+    height: 74px;
+    input {
+        display: block;
+        text-indent: 5px;
+        border: 1px solid #C8C8C8;
+        height: 38px;
+        width: 100%;
+        font-size: 12px;
+    }
+
+    p {
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+        color: #8C8C8C;
+        visibility: hidden;
+        margin-bottom: 10px;
+        i {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 2px;
+            background: url(../css/img/login_icon_list.png) no-repeat 0 0;
+        }
+    }
+}
+.messNum {
+    input {
+        display: inline-block;
+        width: 165px;
+        margin-right: 14px;
+        // vertical-align: middle;
+    }
+
+    .getMess {
+        display: inline-block;
+        width: 118px;
+        height: 36px;
+        border: 1px solid #C8C8C8;
+        background: #F6F6F6;
+        color: #000;
+        font-size: 12px;
+        line-height: 36px;
+        vertical-align: middle;
+        text-align: center;
+    }
+}
+.sendMess {
+    font-size: 12px;
+
+    .btn {
+        display: block;
+        width: 100%;
+        height: 40px;
+        background: #94193F;
+        color: #fff;
+    }
+
+    p {
+        height: 34px;
+        line-height: 34px;
+
+        input {
+            margin-right: 5px;
+        }
+
+        a {
+            color: #C41F3A;
+        }
+    }
+}
+.otherWay{
+    p{
+        height: 44px;
+        line-height: 44px;
+        font-size: 12px;
+    }
+    a{
+        display: inline-block;
+        width:50px;
+        height: 50px;
+        vertical-align: middle;
+        margin-right: 16px;
+    }
+    .wayQQ{
+        background:url(../css/img/login_icon_list.png) no-repeat 0px -32px;
+    }
+    .wayWei{
+        background:url(../css/img/login_icon_list.png) no-repeat -72px -32px;
+    }
+    .wayZhi{
+        background:url(../css/img/login_icon_list.png) no-repeat -143px -32px;
+    }
+}
+
+.checkCode {
+    input {
+        display: inline-block;
+        width: 165px;
+    }
+
+    .code {
+        display: inline-block;
+        width: 70px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        color: #000;
+        vertical-align: middle;
+        background: skyblue;
+        letter-spacing: 4px;
+        margin: 0 8px;
+    }
+
+    .change {
+        font-size: 12px;
+        color: #C41F3A;
+    }
+}
+.focus {
+    border-color: #E24A4A;
+    box-shadow: 0 0 5px #E24A4A;
+    outline-style: none;
+}
+
+//注册
+#register {
+    width: 301px;
+    padding: 0 33px 54px;
+    margin-right: 26px;
+    background: url(../css/img/login_icon_list.png) no-repeat 0px -119px;
+
+    .reg_head {
+        padding: 30px 0px;
+
+        h3 {
+            font-size: 22px;
+            color: #C41F3A;
+            font-weight: bold;
+        }
+
+        .login_in {
+            font-size: 12px;
+            height: 100%;
+            line-height: 100%;
+            color: #8C8C8C;
+            line-height: 30px;
+
+            .tologin {
+                color: #C41F3A;
+            }
+
+            .tologin:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+//登录
+#login {
+    width: 318px;
+    padding: 0 24px 54px;
+    background: url(../css/img/login_icon_list.png) no-repeat 0px -119px;
+
+    .login_head {
+        padding: 30px 0px;
+
+        h3 {
+            font-size: 22px;
+            color: #C41F3A;
+            font-weight: bold;
+        }
+
+        .reg_in {
+            font-size: 12px;
+            height: 100%;
+            line-height: 100%;
+            color: #8C8C8C;
+            line-height: 30px;
+
+            .toreg {
+                color: #C41F3A;
+            }
+
+            .toreg:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .checkLogin {
+        .radioBtn {
+            font-size: 12px;
+            color: #000;
+            padding-right: 50px;
+            vertical-align: middle;
+            input {
+                margin-right: 10px;
+            }
+        }
+        .frame {
+            padding-top: 12px;
+        }
+        .divOne{
+            display: none;
+        }
+    }
+}
+
+/*footer-------->*/
+.footer {
+    text-align: center;
+    font-size: 12px;
+    padding: 44px 0;
+
+    p {
+        color: #7E7E7E;
+        line-height: 24px;
+    }
+
+    p:nth-child(2) {
+        margin-bottom: 24px;
+    }
+}

@@ -492,7 +492,7 @@ $(function () {
                     var day = new Date();
                     day.setDate(day.getDate() - 1);
                     document.cookie = "uid=out;expires=" + day.toUTCString() + ";path=/";
-                    location.href = "index1.html";
+                    location.href = "index.html";
                 }
             }
         });
@@ -650,7 +650,7 @@ $(function () {
                                         var day = new Date();
                                         day.setDate(day.getDate() + 7);
                                         document.cookie = "uid=" + res.uid + ";expires=" + day.toUTCString() + ";path=/";
-                                        location.href = "index1.html";
+                                        location.href = "index .html";
                                     } else {
                                         $("#sidebar .unlogin").find("p").eq(0).css("visibility", "visible");
                                         $("#sidebar .unlogin").find("p").eq(0).html("<i></i>用户名或密码错误！");

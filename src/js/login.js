@@ -64,7 +64,7 @@ $(function () {
                                 var res = JSON.parse(data);
                                 alert(res.message);
                                 if(res.code == "0"){
-                                    location.href = "../index1.html";
+                                    location.href = "../index.html";
                                     var day = new Date();
                                     day.setDate(day.getDate()+7);
                                     document.cookie = "uid="+res.uid+";expires="+day.toUTCString()+";path=/";
